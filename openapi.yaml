@@ -1,0 +1,3838 @@
+openapi: 3.0.3
+info:
+  title: InvenioRDM API
+  version: 1.0.0
+  contact: {
+    name: Sam Arbid,
+    email: samaa2@kth.se
+    }
+servers:
+  - url: https://127.0.0.1:5000
+paths:
+  /api/communities/{community-id}/logo:
+    get:
+      tags:
+        - Communities
+        - Communities logo
+      summary: Get Community Logo
+      description: Get Community Logo
+      operationId: getCommunityLogo
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get Community Logo:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities/{community-slug}/logo:
+    put:
+      tags:
+        - Communities
+        - Communities logo
+      summary: Update Community Logo
+      description: Update Community Logo
+      operationId: updateCommunityLogo
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Communities
+        - Communities logo
+      summary: Delete Community Logo
+      description: Delete Community Logo
+      operationId: deleteCommunityLogo
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-slug
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities:
+    get:
+      tags:
+        - Delete All communities DANGER
+      summary: Get all Communities
+      description: Get all Communities
+      operationId: getAllCommunities
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: q
+          in: query
+          schema:
+            type: string
+            example: test-community
+        - name: sort
+          in: query
+          schema:
+            type: string
+            example: newest | oldest | version
+        - name: size
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: type
+          in: query
+          schema:
+            type: string
+            example: event | topic | project
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get all Communities:
+                value: ''
+              Get all Community:
+                value: ''
+              Get all Community ids:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - recreate communities
+      summary: Create a Community
+      description: Create a Community
+      operationId: createACommunity
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access:
+                  type: object
+                  properties:
+                    member_policy:
+                      type: string
+                      example: open
+                    record_policy:
+                      type: string
+                      example: open
+                    visibility:
+                      type: string
+                      example: restricted
+                metadata:
+                  type: object
+                  properties:
+                    curation_policy:
+                      type: string
+                      example: This is the kind of records we accept.
+                    description:
+                      type: string
+                      example: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: KTH
+                      example:
+                        - name: KTH
+                    page:
+                      type: string
+                      example: '{{$randomJobDescriptor}}'
+                    title:
+                      type: string
+                      example: >-
+                        api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: event
+                    website:
+                      type: string
+                      example: https://kth.se/
+                slug:
+                  type: string
+                  example: >-
+                    api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}
+            examples:
+              Create a Community:
+                value:
+                  access:
+                    member_policy: open
+                    record_policy: open
+                    visibility: public
+                  metadata:
+                    curation_policy: This is the kind of records we accept.
+                    description: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      - name: KTH
+                    page: '{{$randomJobDescriptor}}'
+                    title: >-
+                      public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      id: event
+                    website: https://kth.se/
+                  slug: public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+              Create publicCommunity:
+                value:
+                  access:
+                    member_policy: open
+                    record_policy: open
+                    visibility: restricted
+                  metadata:
+                    curation_policy: This is the kind of records we accept.
+                    description: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      - name: KTH
+                    page: '{{$randomJobDescriptor}}'
+                    title: >-
+                      api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      id: event
+                    website: https://kth.se/
+                  slug: >-
+                    api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}
+              Create restricted Community:
+                value:
+                  access:
+                    member_policy: open
+                    record_policy: open
+                    visibility: restricted
+                  metadata:
+                    curation_policy: This is the kind of records we accept.
+                    description: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      - name: KTH
+                    page: '{{$randomJobDescriptor}}'
+                    title: >-
+                      restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      id: event
+                    website: https://kth.se/
+                  slug: >-
+                    restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/communities/{community-id}:
+    get:
+      tags:
+        - Communities
+      summary: Get Community by ID
+      description: Get Community by ID
+      operationId: getCommunityById
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get Community by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Communities
+      summary: Update Community
+      description: Update Community
+      operationId: updateCommunity
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access:
+                  type: object
+                  properties:
+                    member_policy:
+                      type: string
+                      example: closed
+                    record_policy:
+                      type: string
+                      example: closed
+                    visibility:
+                      type: string
+                      example: restricted
+                metadata:
+                  type: object
+                  properties:
+                    curation_policy:
+                      type: string
+                      example: This is the kind of records we accept.
+                    description:
+                      type: string
+                      example: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: KTH
+                      example:
+                        - name: KTH
+                    page:
+                      type: string
+                      example: Information for my community.
+                    title:
+                      type: string
+                      example: >-
+                        sam-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: event
+                    website:
+                      type: string
+                      example: https://inveniosoftware.org/
+                slug:
+                  type: string
+                  example: '{{community-slug}}'
+            examples:
+              Update Community:
+                value:
+                  access:
+                    member_policy: closed
+                    record_policy: closed
+                    visibility: restricted
+                  metadata:
+                    curation_policy: This is the kind of records we accept.
+                    description: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      - name: KTH
+                    page: Information for my community.
+                    title: sam-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      id: event
+                    website: https://inveniosoftware.org/
+                  slug: '{{community-slug}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Delete All communities DANGER
+      summary: Delete Community
+      description: Delete Community
+      operationId: deleteCommunity
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Delete All communities:
+                value: ''
+              Delete Community:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/user/communities:
+    get:
+      tags:
+        - Communities
+      summary: Get User Communities
+      description: Get User Communities
+      operationId: getUserCommunities
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: type
+          in: query
+          schema:
+            type: string
+            example: project
+        - name: size
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: sort
+          in: query
+          schema:
+            type: string
+            example: oldest
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get User Communities:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/communities/{community-id}/featured:
+    get:
+      tags:
+        - Communities
+      summary: Create a Featured Community Entry v11 beta
+      description: Create a Featured Community Entry v11 beta
+      operationId: createAFeaturedCommunityEntryV11Beta
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_date:
+                  type: string
+                  example: '{{$timestamp}}'
+            examples:
+              Create a Featured Community Entry v11 beta:
+                value:
+                  start_date: '{{$timestamp}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities/{community-id}/rename:
+    post:
+      tags:
+        - Communities
+      summary: Rename a Community
+      description: Rename a Community
+      operationId: renameACommunity
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access:
+                  type: object
+                  properties:
+                    member_policy:
+                      type: string
+                      example: open
+                    record_policy:
+                      type: string
+                      example: open
+                    visibility:
+                      type: string
+                      example: public
+                metadata:
+                  type: object
+                  properties:
+                    curation_policy:
+                      type: string
+                      example: This is the kind of records we accept.
+                    description:
+                      type: string
+                      example: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: KTH
+                      example:
+                        - name: KTH
+                    page:
+                      type: string
+                      example: '{{$randomJobDescriptor}}'
+                    title:
+                      type: string
+                      example: >-
+                        public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: event
+                    website:
+                      type: string
+                      example: https://kth.se/
+                slug:
+                  type: string
+                  example: public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+            examples:
+              Rename a Community:
+                value:
+                  access:
+                    member_policy: open
+                    record_policy: open
+                    visibility: public
+                  metadata:
+                    curation_policy: This is the kind of records we accept.
+                    description: '{{$randomCatchPhraseDescriptor}}'
+                    organizations:
+                      - name: KTH
+                    page: '{{$randomJobDescriptor}}'
+                    title: >-
+                      public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+                    type:
+                      id: event
+                    website: https://kth.se/
+                  slug: public-community-{{$randomProductAdjective}}-{{$randomVerb}}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/actions/accept:
+    post:
+      tags:
+        - Requests
+        - Request Actions
+      summary: Accept a request
+      description: Accept a request
+      operationId: acceptARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: You are in!
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Accept a request:
+                value:
+                  payload:
+                    content: You are in!
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/actions/cancel:
+    post:
+      tags:
+        - Requests
+        - Request Actions
+      summary: Cancel a request
+      description: Cancel a request
+      operationId: cancelARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: You are in!
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Cancel a request:
+                value:
+                  payload:
+                    content: You are in!
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/actions/decline:
+    post:
+      tags:
+        - Requests
+        - Request Actions
+      summary: Decline a request
+      description: Decline a request
+      operationId: declineARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: You are not in!
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Decline a request:
+                value:
+                  payload:
+                    content: You are not in!
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/comments:
+    post:
+      tags:
+        - Requests
+        - Request Events
+      summary: Submit a comment on a request
+      description: Submit a comment on a request
+      operationId: submitACommentOnARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: >-
+                        I would use these subject terms to align the record with
+                        others in the community.
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Submit a comment on a request:
+                value:
+                  payload:
+                    content: >-
+                      I would use these subject terms to align the record with
+                      others in the community.
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/timeline:
+    get:
+      tags:
+        - Requests
+        - Request Events
+      summary: Get a request's timeline
+      description: Get a request's timeline
+      operationId: getARequestSTimeline
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a request's timeline:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/{request_id}/comments/{comment_id}:
+    get:
+      tags:
+        - Requests
+        - Request Events
+      summary: Get a comment
+      description: Get a comment
+      operationId: getAComment
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a comment:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Requests
+        - Request Events
+      summary: Update a comment
+      description: Update a comment
+      operationId: updateAComment
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: >-
+                        I would use these subject terms to align this record and
+                        the other one with others in the community.
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Update a comment:
+                value:
+                  payload:
+                    content: >-
+                      I would use these subject terms to align this record and
+                      the other one with others in the community.
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Requests
+        - Request Events
+      summary: Delete a comment
+      description: Delete a comment
+      operationId: deleteAComment
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Delete a comment:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/requests/:
+    get:
+      tags:
+        - Requests
+      summary: Search requests
+      description: Search requests
+      operationId: searchRequests
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+        - name: q
+          in: query
+          schema:
+            type: string
+        - name: sort
+          in: query
+          schema:
+            type: string
+        - name: size
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search requests:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/requests/{request_id}:
+    get:
+      tags:
+        - Requests
+      summary: Get a request
+      description: Get a request
+      operationId: getARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a request:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Requests
+      summary: Update a request
+      description: Update a request
+      operationId: updateARequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                created_by:
+                  type: object
+                  properties:
+                    user:
+                      type: string
+                      example: '1'
+                expires_at:
+                  nullable: true
+                  example: null
+                id:
+                  type: string
+                  example: db3e6ce4-f2e0-45f8-9cd4-3db526855313
+                number:
+                  type: string
+                  example: '1'
+                receiver:
+                  type: object
+                  properties:
+                    community:
+                      type: string
+                      example: 5e6a7eea-1275-4c76-a4a1-2a454ca8269f
+                revision_id:
+                  type: number
+                  example: 1
+                status:
+                  type: string
+                  example: draft
+                title:
+                  type: string
+                  example: A new title
+                topic:
+                  type: object
+                  properties:
+                    record:
+                      type: string
+                      example: 2e95m-kjb27
+                type:
+                  type: string
+                  example: default-request
+            examples:
+              Update a request:
+                value:
+                  created_by:
+                    user: '1'
+                  expires_at: null
+                  id: db3e6ce4-f2e0-45f8-9cd4-3db526855313
+                  number: '1'
+                  receiver:
+                    community: 5e6a7eea-1275-4c76-a4a1-2a454ca8269f
+                  revision_id: 1
+                  status: draft
+                  title: A new title
+                  topic:
+                    record: 2e95m-kjb27
+                  type: default-request
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: Get all Records
+      description: Get all Records
+      operationId: getAllRecords
+      parameters:
+        - name: prettyprint
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+        - name: q
+          in: query
+          schema:
+            type: string
+            example: 'description: (The Creative Commons) OR (Francois)'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Create a draft record Copy
+      description: Create a draft record Copy
+      operationId: createADraftRecordCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access:
+                  type: object
+                  properties:
+                    files:
+                      type: string
+                      example: public
+                    record:
+                      type: string
+                      example: public
+                files:
+                  type: object
+                  properties:
+                    enabled:
+                      type: boolean
+                      example: true
+                metadata:
+                  type: object
+                  properties:
+                    creators:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          person_or_org:
+                            type: object
+                            properties:
+                              family_name:
+                                type: string
+                                example: Arbid
+                              given_name:
+                                type: string
+                                example: Sam
+                              identifiers:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    identifier:
+                                      type: string
+                                      example: 0000-0002-1825-0097
+                                    scheme:
+                                      type: string
+                                      example: orcid
+                                example:
+                                  - identifier: 0000-0002-1825-0097
+                                    scheme: orcid
+                              name:
+                                type: string
+                                example: Bowman, Kiara
+                              type:
+                                type: string
+                                example: personal
+                          role:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: other
+                      example:
+                        - person_or_org:
+                            family_name: Arbid
+                            given_name: Sam
+                            identifiers:
+                              - identifier: 0000-0002-1825-0097
+                                scheme: orcid
+                            name: Bowman, Kiara
+                            type: personal
+                          role:
+                            id: other
+                    publication_date:
+                      type: string
+                      example: '2020-06-01'
+                    resource_type:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: image-photo
+                    title:
+                      type: string
+                      example: Sam test API draft request {{$randomWord}}
+                type:
+                  type: string
+                  example: community-submission
+            examples:
+              Create a draft record Copy:
+                value:
+                  access:
+                    files: public
+                    record: public
+                  files:
+                    enabled: true
+                  metadata:
+                    creators:
+                      - person_or_org:
+                          family_name: Arbid
+                          given_name: Sam
+                          identifiers:
+                            - identifier: 0000-0002-1825-0097
+                              scheme: orcid
+                          name: Bowman, Kiara
+                          type: personal
+                        role:
+                          id: other
+                    publication_date: '2020-06-01'
+                    resource_type:
+                      id: image-photo
+                    title: Sam test API draft request {{$randomWord}}
+                  type: community-submission
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/records/{record-id-draft}/draft/files:
+    get:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: List a draft's files
+      description: List a draft's files
+      operationId: listADraftSFiles
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: step[1]- draft file upload Copy
+      description: step[1]- draft file upload Copy
+      operationId: step1DraftFileUploadCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    example: '{{file-name}}'
+              example:
+                - key: '{{file-name}}'
+            examples:
+              step[1]- draft file upload Copy:
+                value:
+                  - key: '{{file-name}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/files/{file-name}/content:
+    get:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Download a draft file
+      description: Download a draft file
+      operationId: downloadADraftFile
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: step[2]- draft file upload Copy
+      description: step[2]- draft file upload Copy
+      operationId: step2DraftFileUploadCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file-name
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/files/{file-name}/commit:
+    post:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: step[3]- draft file commit Copy
+      description: step[3]- draft file commit Copy
+      operationId: step3DraftFileCommitCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file-name
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/review:
+    put:
+      tags:
+        - Reviews
+      summary: Create/update a review request Copy
+      description: Create/update a review request Copy
+      operationId: createUpdateAReviewRequestCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                receiver:
+                  type: object
+                  properties:
+                    community:
+                      type: string
+                      example: '{{community-id}}'
+                type:
+                  type: string
+                  example: community-submission
+            examples:
+              Create/update a review request:
+                value:
+                  receiver:
+                    community: '{{community-id}}'
+                  type: community-submission
+              Create/update a review request Copy:
+                value:
+                  receiver:
+                    community: '{{community-id}}'
+                  type: community-submission
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Reviews
+      summary: Delete a review request
+      description: Delete a review request
+      operationId: deleteAReviewRequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                receiver:
+                  type: object
+                  properties:
+                    community:
+                      type: string
+                      example: '{{community-id}}'
+                type:
+                  type: string
+                  example: community-submission
+            examples:
+              Delete a review request:
+                value:
+                  receiver:
+                    community: '{{community-id}}'
+                  type: community-submission
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/actions/submit-review:
+    post:
+      tags:
+        - Reviews
+      summary: Submit a record for review Copy
+      description: Submit a record for review Copy
+      operationId: submitARecordForReviewCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      example: Thank you in advance for the review.
+                    format:
+                      type: string
+                      example: html
+            examples:
+              Submit a record for review:
+                value:
+                  payload:
+                    content: Thank you in advance for the review.
+                    format: html
+              Submit a record for review Copy:
+                value:
+                  payload:
+                    content: Thank you in advance for the review.
+                    format: html
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/actions/publish:
+    post:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Publish a draft record Copy
+      description: Publish a draft record Copy
+      operationId: publishADraftRecordCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft/files/{file-name}:
+    get:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Get a draft file's metadata
+      description: Get a draft file's metadata
+      operationId: getADraftFileSMetadata
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Delete a draft file
+      description: Delete a draft file
+      operationId: deleteADraftFile
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file-name
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id-draft}/draft:
+    get:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Get a draft records
+      description: Get a draft records
+      operationId: getADraftRecords
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Update a draft record
+      description: Update a draft record
+      operationId: updateADraftRecord
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access:
+                  type: object
+                  properties:
+                    files:
+                      type: string
+                      example: public
+                    record:
+                      type: string
+                      example: public
+                files:
+                  type: object
+                  properties:
+                    enabled:
+                      type: string
+                      example: 'false'
+                metadata:
+                  type: object
+                  properties:
+                    creators:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          affiliations:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                  example: KTH Royal Institute of Technology
+                            example:
+                              - name: KTH Royal Institute of Technology
+                          person_or_org:
+                            type: object
+                            properties:
+                              family_name:
+                                type: string
+                                example: Bowman
+                              given_name:
+                                type: string
+                                example: Kiara
+                              identifiers:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    identifier:
+                                      type: string
+                                      example: 0000-0002-1825-0097
+                                    scheme:
+                                      type: string
+                                      example: orcid
+                                example:
+                                  - identifier: 0000-0002-1825-0097
+                                    scheme: orcid
+                              name:
+                                type: string
+                                example: Bowman, Kiara
+                              type:
+                                type: string
+                                example: personal
+                          role:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: other
+                      example:
+                        - person_or_org:
+                            family_name: Bowman
+                            given_name: Kiara
+                            identifiers:
+                              - identifier: 0000-0002-1825-0097
+                                scheme: orcid
+                            name: Bowman, Kiara
+                            type: personal
+                          role:
+                            id: other
+                        - affiliations:
+                            - name: KTH Royal Institute of Technology
+                          person_or_org:
+                            family_name: Lönneborg
+                            given_name: Rosa
+                            identifiers:
+                              - identifier: 0000-0002-9548-6431
+                                scheme: orcid
+                            name: Lönneborg, Rosa
+                            type: personal
+                    publication_date:
+                      type: string
+                      example: '2020-06-01'
+                    resource_type:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: image-photo
+                    title:
+                      type: string
+                      example: Update title using API draft request
+            examples:
+              Update a draft record:
+                value:
+                  access:
+                    files: public
+                    record: public
+                  files:
+                    enabled: 'false'
+                  metadata:
+                    creators:
+                      - person_or_org:
+                          family_name: Bowman
+                          given_name: Kiara
+                          identifiers:
+                            - identifier: 0000-0002-1825-0097
+                              scheme: orcid
+                          name: Bowman, Kiara
+                          type: personal
+                        role:
+                          id: other
+                      - affiliations:
+                          - name: KTH Royal Institute of Technology
+                        person_or_org:
+                          family_name: Lönneborg
+                          given_name: Rosa
+                          identifiers:
+                            - identifier: 0000-0002-9548-6431
+                              scheme: orcid
+                          name: Lönneborg, Rosa
+                          type: personal
+                    publication_date: '2020-06-01'
+                    resource_type:
+                      id: image-photo
+                    title: Update title using API draft request
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Records and Drafts
+        - Drafts
+      summary: Delete/discard a draft record
+      description: Delete/discard a draft record
+      operationId: deleteDiscardADraftRecord
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id-draft
+        in: path
+        required: true
+        schema:
+          type: string
+  /records/{record-id}/export/json:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+        - Exports
+      summary: Export record as JSON
+      description: Export record as JSON
+      operationId: exportRecordAsJson
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          text/plain:
+            examples:
+              Export record as JSON:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /records/{record-id}/export/dublincore:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+        - Exports
+      summary: Export record as dublincore XML
+      description: Export record as dublincore XML
+      operationId: exportRecordAsDublincoreXml
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /records/{record-id}/export/datacite-xml:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+        - Exports
+      summary: Export record as datacite-xml
+      description: Export record as datacite-xml
+      operationId: exportRecordAsDataciteXml
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /records/{record-id}/export/datacite-json:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+        - Exports
+      summary: Export record as datacite-json
+      description: Export record as datacite-json
+      operationId: exportRecordAsDataciteJson
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /records/{record-id}/export/csl:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+        - Exports
+      summary: Export record as csl
+      description: Export record as csl
+      operationId: exportRecordAsCsl
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/communities:
+    delete:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: Delete Record community
+      description: Delete Record community
+      operationId: deleteRecordCommunity
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                communities:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '{{community-id}}'
+                  example:
+                    - id: '{{community-id}}'
+                    - id: '{{community-id}}'
+            examples:
+              Delete Record community:
+                value:
+                  communities:
+                    - id: '{{community-id}}'
+                    - id: '{{community-id}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: Get record by ID
+      description: Get record by ID
+      operationId: getRecordById
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: '1'
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/files:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: List a draft's files
+      description: List a draft's files
+      operationId: listADraftSFiles1
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/files/{file-name}:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: Get record file's metadata
+      description: Get record file's metadata
+      operationId: getRecordFileSMetadata
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file-name
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/files/{file-name}/content:
+    get:
+      tags:
+        - Records and Drafts
+        - Records
+      summary: Download record file
+      description: Download record file
+      operationId: downloadRecordFile
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file-name
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/versions:
+    get:
+      tags:
+        - Records and Drafts
+        - Versions
+      summary: Get all versions
+      description: Get all versions
+      operationId: getAllVersions
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Records and Drafts
+        - Versions
+      summary: Create a new version
+      description: Create a new version
+      operationId: createANewVersion
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/versions/latest:
+    get:
+      tags:
+        - Records and Drafts
+        - Versions
+      summary: Get latest version
+      description: Get latest version
+      operationId: getLatestVersion
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/access/links:
+    get:
+      tags:
+        - Records and Drafts
+        - Access links
+      summary: List access links
+      description: List access links
+      operationId: listAccessLinks
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              List access links:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Records and Drafts
+        - Access links
+      summary: Create an access link
+      description: Create an access link
+      operationId: createAnAccessLink
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                permission:
+                  type: string
+                  example: view
+            examples:
+              Create an access link:
+                value:
+                  permission: view
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/access/links/{link-id}:
+    get:
+      tags:
+        - Records and Drafts
+        - Access links
+      summary: Get an access link by ID
+      description: Get an access link by ID
+      operationId: getAnAccessLinkById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                permission:
+                  type: string
+                  example: view
+            examples:
+              Get an access link by ID:
+                value:
+                  permission: view
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Records and Drafts
+        - Access links
+      summary: Delete an access link
+      description: Delete an access link
+      operationId: deleteAnAccessLink
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Delete an access link:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    patch:
+      tags:
+        - Records and Drafts
+        - Access links
+      summary: Update an access link
+      description: Update an access link
+      operationId: updateAnAccessLink
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Update an access link:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: link-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/user/record:
+    get:
+      tags:
+        - Records and Drafts
+        - User Records
+      summary: List access links Copy
+      description: List access links Copy
+      operationId: listAccessLinksCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              List access links Copy:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/groups:
+    get:
+      tags:
+        - Groups
+      summary: Search groups
+      description: Search groups
+      operationId: searchGroups
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Search groups:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/groups/{group-id}:
+    get:
+      tags:
+        - Groups
+      summary: Get  group by ID
+      description: Get  group by ID
+      operationId: getGroupById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Get  group by ID:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: group-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/groups/{group-id}/avatar.svg:
+    get:
+      tags:
+        - Groups
+      summary: Get avatar for group
+      description: Get avatar for group
+      operationId: getAvatarForGroup
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Get avatar for group:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: group-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities/{community-id}/members:
+    get:
+      tags:
+        - Members
+      summary: Search members
+      description: Search members
+      operationId: searchMembers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Search members:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Members
+      summary: Update members
+      description: Update members
+      operationId: updateMembers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: admin
+                      type:
+                        type: string
+                        example: group
+                  example:
+                    - id: admin
+                      type: group
+                    - id: '3'
+                      type: user
+                role:
+                  type: string
+                  example: reader
+                visible:
+                  type: boolean
+                  example: false
+            examples:
+              Update members:
+                value:
+                  members:
+                    - id: admin
+                      type: group
+                    - id: '3'
+                      type: user
+                  role: reader
+                  visible: false
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Members
+      summary: Add group members
+      description: Add group members
+      operationId: addGroupMembers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: admin
+                      type:
+                        type: string
+                        example: group
+                  example:
+                    - id: admin
+                      type: group
+                role:
+                  type: string
+                  example: curator
+            examples:
+              Add group members:
+                value:
+                  members:
+                    - id: admin
+                      type: group
+                  role: curator
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Members
+      summary: Remove members / leave community
+      description: Remove members / leave community
+      operationId: removeMembersLeaveCommunity
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '1'
+                      type:
+                        type: string
+                        example: user
+                  example:
+                    - id: '1'
+                      type: user
+            examples:
+              Remove members / leave community:
+                value:
+                  members:
+                    - id: '1'
+                      type: user
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities/{community-id}/members/public:
+    get:
+      tags:
+        - Members
+      summary: Search public members
+      description: Search public members
+      operationId: searchPublicMembers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Search public members:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/communities/{community-id}/invitations:
+    get:
+      tags:
+        - Members
+      summary: Search invitations
+      description: Search invitations
+      operationId: searchInvitations
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_at:
+                  type: string
+                  example: '2122-03-25T21:06:29.563235'
+                permission:
+                  type: string
+                  example: edit
+            examples:
+              Search invitations:
+                value:
+                  expires_at: '2122-03-25T21:06:29.563235'
+                  permission: edit
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Members
+      summary: Update invitations
+      description: Update invitations
+      operationId: updateInvitations
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: admin
+                      type:
+                        type: string
+                        example: group
+                  example:
+                    - id: admin
+                      type: group
+                    - id: '3'
+                      type: user
+                role:
+                  type: string
+                  example: reader
+                visible:
+                  type: boolean
+                  example: false
+            examples:
+              Update invitations:
+                value:
+                  members:
+                    - id: admin
+                      type: group
+                    - id: '3'
+                      type: user
+                  role: reader
+                  visible: false
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Members
+      summary: Invite user members
+      description: Invite user members
+      operationId: inviteUserMembers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '1'
+                      type:
+                        type: string
+                        example: user
+                  example:
+                    - id: '1'
+                      type: user
+                message:
+                  type: string
+                  example: <p>Hi</p>
+                role:
+                  type: string
+                  example: curator
+            examples:
+              Invite user members:
+                value:
+                  members:
+                    - id: '1'
+                      type: user
+                  message: <p>Hi</p>
+                  role: curator
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: community-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/users:
+    get:
+      tags:
+        - Reviews
+      summary: Search users
+      description: Search users
+      operationId: searchUsers
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a user by ID:
+                value: ''
+              Search users:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/user/records:
+    get:
+      tags:
+        - Users
+      summary: Search users Copy
+      description: Search users Copy
+      operationId: searchUsersCopy
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search users Copy:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/users/{user-id}:
+    get:
+      tags:
+        - Users
+      summary: Get a user by ID
+      description: Get a user by ID
+      operationId: getAUserById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a user by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: user-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/users/{user-id}/avatar.svg:
+    get:
+      tags:
+        - Users
+      summary: Get avatar for user
+      description: Get avatar for user
+      operationId: getAvatarForUser
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get avatar for user:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: user-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/records/{record-id}/draft/review:
+    get:
+      tags:
+        - Reviews
+      summary: Get a review request
+      description: Get a review request
+      operationId: getAReviewRequest
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a review request:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: record-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/vocabularies/{vocabularies-type}:
+    get:
+      tags:
+        - Vocabularies
+      summary: Search vocabularies
+      description: Search vocabularies
+      operationId: searchVocabularies
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search vocabularies:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: vocabularies-type
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/vocabularies/resourcetypes:
+    get:
+      tags:
+        - Vocabularies
+      summary: Search vocabularies resourcetypes
+      description: Search vocabularies resourcetypes
+      operationId: searchVocabulariesResourcetypes
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search vocabularies resourcetypes:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/languages:
+    get:
+      tags:
+        - Vocabularies
+      summary: Search vocabularies languages
+      description: Search vocabularies languages
+      operationId: searchVocabulariesLanguages
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search vocabularies languages:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/licenses:
+    get:
+      tags:
+        - Vocabularies
+      summary: Search vocabularies licenses
+      description: Search vocabularies licenses
+      operationId: searchVocabulariesLicenses
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search vocabularies licenses:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/relationtypes:
+    get:
+      tags:
+        - Vocabularies
+      summary: Search vocabularies relationtypes
+      description: Search vocabularies relationtypes
+      operationId: searchVocabulariesRelationtypes
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search vocabularies relationtypes:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/contributorsroles:
+    get:
+      tags:
+        - Vocabularies
+      summary: vocabularies contributorsroles
+      description: vocabularies contributorsroles
+      operationId: vocabulariesContributorsroles
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              vocabularies contributorsroles:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/descriptiontypes:
+    get:
+      tags:
+        - Vocabularies
+      summary: vocabularies descriptiontypes
+      description: vocabularies descriptiontypes
+      operationId: vocabulariesDescriptiontypes
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              vocabularies descriptiontypes:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/datetypes:
+    get:
+      tags:
+        - Vocabularies
+      summary: vocabularies datetypes
+      description: vocabularies datetypes
+      operationId: vocabulariesDatetypes
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              vocabularies datetypes:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/creatorsroles:
+    get:
+      tags:
+        - Vocabularies
+      summary: vocabularies creatorsroles
+      description: vocabularies creatorsroles
+      operationId: vocabulariesCreatorsroles
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              vocabularies creatorsroles:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/vocabularies/{vocabularies-type}/{vocabularies-id}:
+    get:
+      tags:
+        - Vocabularies
+      summary: Get a vocabulary record by ID
+      description: Get a vocabulary record by ID
+      operationId: getAVocabularyRecordById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a vocabulary record by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: vocabularies-type
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: vocabularies-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/affiliations:
+    get:
+      tags:
+        - Vocabularies
+      summary: Specific vocabularies affiliations
+      description: Specific vocabularies affiliations
+      operationId: specificVocabulariesAffiliations
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies affiliations:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/affiliations/{voc-affiliation-id}:
+    get:
+      tags:
+        - Vocabularies
+      summary: Specific vocabularies affiliations by ID
+      description: Specific vocabularies affiliations by ID
+      operationId: specificVocabulariesAffiliationsById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies affiliations by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: voc-affiliation-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/subjects:
+    get:
+      tags:
+        - Vocabularies
+      summary: Specific vocabularies subjects
+      description: Specific vocabularies subjects
+      operationId: specificVocabulariesSubjects
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+        - name: suggest
+          in: query
+          schema:
+            type: string
+            example: '{{subject-query}}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies subjects:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/subjects/{voc-subjects-id}:
+    get:
+      tags:
+        - Vocabularies
+      summary: X Specific vocabularies subjects by ID
+      description: X Specific vocabularies subjects by ID
+      operationId: xSpecificVocabulariesSubjectsById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              X Specific vocabularies subjects by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: voc-subjects-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/names:
+    get:
+      tags:
+        - Vocabularies Names
+      summary: Get names
+      description: Get names
+      operationId: getNames
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+            example: smith
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get names:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/names/{voc-names-id}:
+    get:
+      tags:
+        - Vocabularies Names
+      summary: Get names by ID
+      description: Get names by ID
+      operationId: getNamesById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get names by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: voc-names-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/funders:
+    get:
+      tags:
+        - Vocabularies Funders
+      summary: Specific vocabularies funders
+      description: Specific vocabularies funders
+      operationId: specificVocabulariesFunders
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies funders:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/funders/{voc-funders-id}:
+    get:
+      tags:
+        - Vocabularies Funders
+      summary: Specific vocabularies funders by ID
+      description: Specific vocabularies funders by ID
+      operationId: specificVocabulariesFundersById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies funders by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: voc-funders-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/awards:
+    get:
+      tags:
+        - Awards
+      summary: Specific vocabularies awards
+      description: Specific vocabularies awards
+      operationId: specificVocabulariesAwards
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies awards:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/awards/{voc-awards-id}:
+    get:
+      tags:
+        - Awards
+      summary: Specific vocabularies awards by ID
+      description: Specific vocabularies awards by ID
+      operationId: specificVocabulariesAwardsById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific vocabularies awards by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: voc-awards-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/oaipmh/sets:
+    get:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Search sets
+      description: Search sets
+      operationId: searchSets
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search sets:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Create a set
+      description: Create a set
+      operationId: createASet
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: '{{$randomLoremParagraph}}'
+                name:
+                  type: string
+                  example: '{{$randomWord}}'
+                search_pattern:
+                  type: string
+                  example: '{{$randomWord}}'
+                spec:
+                  type: string
+                  example: '{{$randomWord}}'
+            examples:
+              Create a set:
+                value:
+                  description: '{{$randomLoremParagraph}}'
+                  name: '{{$randomWord}}'
+                  search_pattern: '{{$randomWord}}'
+                  spec: '{{$randomWord}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+  /api/oaipmh/sets/{set-id}:
+    get:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Get a set by ID
+      description: Get a set by ID
+      operationId: getASetById
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Get a set by ID:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Update a set
+      description: Update a set
+      operationId: updateASet
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: '{{$randomLoremParagraph}}'
+                name:
+                  type: string
+                  example: '{{$randomWord}}'
+                search_pattern:
+                  type: string
+                  example: '{{$randomWord}}'
+                spec:
+                  type: string
+                  example: '{{$randomWord}}'
+            examples:
+              Update a set:
+                value:
+                  description: '{{$randomLoremParagraph}}'
+                  name: '{{$randomWord}}'
+                  search_pattern: '{{$randomWord}}'
+                  spec: '{{$randomWord}}'
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Delete a set
+      description: Delete a set
+      operationId: deleteASet
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Delete a set:
+                value: ''
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+    parameters:
+      - name: set-id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/oaipmh/formats:
+    get:
+      tags:
+        - Admin OAI-PMH Sets
+      summary: Get metadata formats
+      description: Get metadata formats
+      operationId: getMetadataFormats
+      parameters:
+        - name: access_token
+          in: query
+          schema:
+            type: string
+            example: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: >-
+                    description of the set, e.g. Entries presented at RDM
+                    conference
+                name:
+                  type: string
+                  example: name of the set, e.g. RDM Conference
+                query:
+                  type: string
+                  example: >-
+                    elasticsearch query of the set, e.g.
+                    elasticsearch_query:to_match_records
+                spec:
+                  type: string
+                  example: >-
+                    spec of the set, e.g. rdm-conference. Used for OAI-PMH
+                    selective harvesting
+            examples:
+              Get metadata formats:
+                value:
+                  description: >-
+                    description of the set, e.g. Entries presented at RDM
+                    conference
+                  name: name of the set, e.g. RDM Conference
+                  query: >-
+                    elasticsearch query of the set, e.g.
+                    elasticsearch_query:to_match_records
+                  spec: >-
+                    spec of the set, e.g. rdm-conference. Used for OAI-PMH
+                    selective harvesting
+      responses:
+        '200':
+          description: ''
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Communities
+  - name: Communities logo
+  - name: Requests
+  - name: Request Actions
+  - name: Request Events
+  - name: Records and Drafts
+  - name: Drafts
+  - name: Records
+    description: >-
+      After sending \`Get all Recods\`request in the collection, it will auto
+      populate the \`record-id\` variable, chech the test page for each request
+      to better understand.
+  - name: Exports
+  - name: Versions
+  - name: Access links
+  - name: User Records
+  - name: Groups
+  - name: Members
+  - name: Users
+  - name: Reviews
+  - name: Vocabularies
+  - name: Vocabularies Names
+  - name: Vocabularies Funders
+  - name: Awards
+  - name: Admin OAI-PMH Sets
+  - name: recreate communities
+  - name: Delete All communities DANGER
