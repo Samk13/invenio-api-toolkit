@@ -1,0 +1,67 @@
+meta {
+  name: Update a draft record
+  type: http
+  seq: 15
+}
+
+put {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "access": {
+      "record": "public",
+      "files": "public"
+    },
+    "files": {
+      "enabled": "false"
+    },
+    "metadata": {
+      "creators": [
+                  {
+                      "person_or_org": {
+                          "family_name": "Bowman",
+                          "given_name": "Kiara",
+                          "identifiers": [
+                              {
+                                  "identifier": "0000-0002-1825-0097",
+                                  "scheme": "orcid"
+                              }
+                          ],
+                          "name": "Bowman, Kiara",
+                          "type": "personal"
+                      },
+                      "role": {
+                          "id": "other"
+                      }
+                  },
+        {
+          "person_or_org": {
+            "family_name": "Lönneborg",
+            "given_name": "Rosa",
+            "identifiers": [
+              {"scheme": "orcid", "identifier": "0000-0002-9548-6431"}
+            ],
+            "name": "Lönneborg, Rosa",
+            "type": "personal"
+          },
+          "affiliations": [
+            {
+              "name": "KTH Royal Institute of Technology"
+            }
+          ]
+        }
+      ],
+      "publication_date": "2020-06-01",
+      "resource_type": { "id": "image-photo" },
+      "title": "Update title using API draft request"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Search groups
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/groups
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: null
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+}

@@ -1,0 +1,69 @@
+meta {
+  name: Create restricted Community
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/api/communities
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "access": {
+      "visibility": "restricted",
+      "member_policy": "open",
+      "record_policy": "open"
+    },
+    "slug": "restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}",
+    "metadata": {
+      "title": "restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}",
+      "description": "{{$randomCatchPhraseDescriptor}}",
+      "type": {
+        "id": "event"
+       },
+      "curation_policy": "This is the kind of records we accept.",
+      "page": "{{$randomJobDescriptor}}",
+      "website": "https://kth.se/",
+      "organizations": [{
+        "name": "KTH"
+      }]
+    }
+  }
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(201);
+  })
+  
+  test("Successful POST request", () => {
+      expect(res.getStatus()).to.be.oneOf([201, 202]);
+  })
+  
+  const res = res.getBody()
+  
+  test("slug and id found", () => {
+      expect(res).to.be.an('object')
+      expect(res.slug.length).to.be.greaterThan(1)
+      expect(res.id.length).to.be.greaterThan(10)
+  })
+  
+  if (expect(res.slug.length).to.be.greaterThan(1)){
+  
+      // set environment variables: it's been set also in get all communities
+      bru.setEnvVar("community-id", res.id)
+      bru.setEnvVar("community-slug", res.slug)
+      console.info(`community-id = ${bru.getEnvVar("community-id")}`)
+      console.info(`community-slug = ${bru.getEnvVar("community-slug")}`)
+  }
+  else {
+      console.log("no community is been created, please check api/communities")
+  }
+}

@@ -1,0 +1,39 @@
+meta {
+  name: Create a set
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/api/oaipmh/sets
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "name": "{{$randomWord}}",
+      "spec": "{{$randomWord}}",
+      "description": "{{$randomLoremParagraph}}",
+      "search_pattern": "{{$randomWord}}"
+  }
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.id
+  
+  
+  // set environment variable
+  res ? bru.setEnvVar("set-id", id ? id : "") : console.log(`set-id is ${id}`)
+  
+  console.info(`set-id = ${bru.getEnvVar("set-id")}`)
+}

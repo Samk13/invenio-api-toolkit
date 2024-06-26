@@ -1,0 +1,40 @@
+meta {
+  name: Search requests
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/requests
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: 
+  ~sort: 
+  ~size: 
+  ~page: 
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+  
+  
+  // get id value dynamically 
+  
+  const response = res.getBody()
+  
+  console.log(response)
+  // this is just an example need to double check it when you run the server!
+  
+  bru.setEnvVar("request_id", response.hits.hits[0].id)
+  
+  console.info(`request_id = ${bru.getEnvVar("request_id")}`)
+}

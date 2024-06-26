@@ -1,0 +1,45 @@
+meta {
+  name: Search records
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/records
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: 
+  ~sort: newest
+  ~size: null
+  ~page: null
+  ~allversions: True
+}
+
+headers {
+  accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.total > 0 ? res.hits.hits[0]?.id: ""
+  const parent_id = res.hits.total > 0 ? res.hits.hits[0]?.parent.id: ""
+  
+  
+  // set environment variable
+  id ? bru.setEnvVar("record-id", id) : console.warn(`No records found ${id}`)
+  parent_id ? bru.setEnvVar("parent-id", parent_id) : console.warn(`No records found ${id}`)
+  
+  console.info(`record-id = ${bru.getEnvVar("record-id")}`)
+  console.info(`parent-id = ${bru.getEnvVar("parent-id")}`)
+}

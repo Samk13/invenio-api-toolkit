@@ -1,0 +1,15 @@
+meta {
+  name: Delete an access link
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

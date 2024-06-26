@@ -1,0 +1,25 @@
+meta {
+  name: Search invitations
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/api/communities/{{community-id}}/invitations
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~q: test
+  ~sort: bestmatch
+  ~size: 1
+  ~page: 1
+  ~role: owner
+  ~status: accepted
+  ~is_open: false
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

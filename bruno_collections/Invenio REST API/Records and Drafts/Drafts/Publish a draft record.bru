@@ -1,0 +1,15 @@
+meta {
+  name: Publish a draft record
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/actions/publish
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

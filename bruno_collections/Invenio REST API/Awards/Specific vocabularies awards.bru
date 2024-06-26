@@ -1,0 +1,36 @@
+meta {
+  name: Specific vocabularies awards
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/awards
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: null
+  ~suggest: null
+  ~sort: bestmatch
+  ~size: 1
+  ~page: 1
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.hits[0].id || ""
+  
+  // set environment variable
+   res ? bru.setEnvVar("voc-funders-id", id) : console.log(`funders is is ${id}`)
+  
+}

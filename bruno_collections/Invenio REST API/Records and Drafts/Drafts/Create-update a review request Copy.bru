@@ -1,0 +1,30 @@
+meta {
+  name: Create-update a review request Copy
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/review
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "receiver": {
+      "community": "{{community-id}}"
+    },
+    "type": "community-submission"
+  }
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(201);
+  })
+}

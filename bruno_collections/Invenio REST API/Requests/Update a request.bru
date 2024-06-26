@@ -1,0 +1,27 @@
+meta {
+  name: Update a request
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseURL}}/api/requests/{{request_id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "expires_at": "2024-06-11",
+    "id": "{{record-id}}",
+    "number": "1",
+    "revision_id": 1,
+    "status": "draft",
+    "title": "A new title",
+    "type": "default-request"
+  }
+}

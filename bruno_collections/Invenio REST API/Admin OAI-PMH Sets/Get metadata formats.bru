@@ -1,0 +1,29 @@
+meta {
+  name: Get metadata formats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/api/oaipmh/formats
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "name": "name of the set, e.g. RDM Conference",
+      "spec": "spec of the set, e.g. rdm-conference. Used for OAI-PMH selective harvesting",
+      "query": "elasticsearch query of the set, e.g. elasticsearch_query:to_match_records",
+      "description": "description of the set, e.g. Entries presented at RDM conference"
+  }
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+}

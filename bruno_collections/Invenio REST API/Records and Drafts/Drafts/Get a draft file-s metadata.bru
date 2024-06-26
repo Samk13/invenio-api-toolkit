@@ -1,0 +1,15 @@
+meta {
+  name: Get a draft file-s metadata
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

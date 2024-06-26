@@ -1,0 +1,26 @@
+meta {
+  name: Remove members - leave community
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseURL}}/api/communities/{{community-id}}/members
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "members": [
+          {
+              "type": "user",
+              "id": "1"
+          }
+      ]
+  }
+}

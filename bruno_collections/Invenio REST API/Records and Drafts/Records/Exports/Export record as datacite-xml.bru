@@ -1,0 +1,21 @@
+meta {
+  name: Export record as datacite-xml
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/records/{{record-id}}/export/datacite-xml
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+  
+}

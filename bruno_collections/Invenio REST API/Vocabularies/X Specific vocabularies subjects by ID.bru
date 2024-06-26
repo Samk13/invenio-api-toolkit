@@ -1,0 +1,20 @@
+meta {
+  name: X Specific vocabularies subjects by ID
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseURL}}/api/subjects/{{voc-subjects-id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+}

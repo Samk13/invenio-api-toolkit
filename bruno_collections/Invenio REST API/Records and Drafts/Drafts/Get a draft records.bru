@@ -1,0 +1,15 @@
+meta {
+  name: Get a draft records
+  type: http
+  seq: 16
+}
+
+get {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

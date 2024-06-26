@@ -1,0 +1,24 @@
+meta {
+  name: Update a comment
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "payload": {
+      "content": "I would use these subject terms to align this record and the other one with others in the community.",
+      "format": "html"
+    }
+  }
+}

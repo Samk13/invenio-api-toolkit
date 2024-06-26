@@ -1,0 +1,38 @@
+meta {
+  name: Search users
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/users
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: test@test.com
+  ~sort: bestmatch
+  ~size: 1
+  ~page: 1
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.hits[0].id
+  
+  console.log(id)
+  
+  // set environment variable
+  res ? bru.setEnvVar("user-id", id ? id : "") : console.log(`user-id is ${id}`)
+  
+  console.info(`user-id = ${bru.getEnvVar("user-id")}`)
+}

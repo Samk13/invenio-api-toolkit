@@ -1,0 +1,15 @@
+meta {
+  name: Create a new version
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/api/records/{{record-id}}/versions
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Update members
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseURL}}/api/communities/{{community-id}}/members
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "members": [
+          {
+              "id": "admin",
+              "type": "group"
+          },
+          {
+              "id": "3",
+              "type": "user"
+          }
+      ],
+      "visible": false,
+      "role": "reader"
+  }
+}

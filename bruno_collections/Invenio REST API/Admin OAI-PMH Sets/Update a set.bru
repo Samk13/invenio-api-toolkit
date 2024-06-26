@@ -1,0 +1,24 @@
+meta {
+  name: Update a set
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseURL}}/api/oaipmh/sets/{{set-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "name": "{{$randomWord}}",
+      "spec": "{{$randomWord}}",
+      "description": "{{$randomLoremParagraph}}",
+      "search_pattern": "{{$randomWord}}"
+  }
+}

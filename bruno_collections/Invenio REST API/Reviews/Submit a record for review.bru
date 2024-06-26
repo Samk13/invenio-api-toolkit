@@ -1,0 +1,28 @@
+meta {
+  name: Submit a record for review
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/actions/submit-review
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "payload": {
+      "content": "Thank you in advance for the review.",
+      "format": "html"
+    }
+  }
+}
+
+tests {
+  test("Status code is 201", () =>  expect(res.getStatus()).to.equal(201))
+}

@@ -1,0 +1,43 @@
+meta {
+  name: Search User Communities
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/api/user/communities
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~page: 1
+  ~type: project
+  ~size: 1
+  ~sort: oldest
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+  
+  
+  
+  
+  res = res.getBody()
+  // res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))
+  
+  res.hits.hits.map(c => console.log(c.slug))
+  // set env to first community found, can produce err if there is no communities
+  bru.setEnvVar("community-id", res.hits.total > 0 ? 
+      res.hits.hits[0].id : 
+      console.warn("no communities found!"))
+  bru.setEnvVar("community-ids", res.hits.hits.map(hit => hit.id) )
+  console.info(`community-ids = ${bru.getEnvVar("community-ids")}`)
+  
+}

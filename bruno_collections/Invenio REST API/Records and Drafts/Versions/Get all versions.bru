@@ -1,0 +1,15 @@
+meta {
+  name: Get all versions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/records/{{record-id}}/versions
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

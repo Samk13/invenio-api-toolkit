@@ -1,0 +1,28 @@
+meta {
+  name: Specific vocabularies affiliations
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseURL}}/api/affiliations
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.hits[0].id || "02ex6cf31"
+  
+  // set environment variable
+  res ? bru.setEnvVar("voc-affiliation-id", id): console.log(`voc-affiliation-id is ${id}`)
+  console.info(`voc-affiliation-id = ${bru.getEnvVar("voc-affiliation-id")}`)
+}

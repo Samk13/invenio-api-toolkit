@@ -1,0 +1,19 @@
+meta {
+  name: Get a set by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/api/oaipmh/sets/{{set-id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+}

@@ -1,0 +1,20 @@
+meta {
+  name: List a record-s files
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/api/records/{{record-id}}/files
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Delete Record community
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseURL}}/api/records/{{record-id}}/communities
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "communities": [
+          { 
+              "id": "{{community-id}}"
+          },
+          { 
+              "id": "{{community-id}}"
+          }
+      ]
+  }
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  
+  
+}

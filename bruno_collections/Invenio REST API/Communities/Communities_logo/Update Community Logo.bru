@@ -1,0 +1,26 @@
+meta {
+  name: Update Community Logo
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseURL}}/api/communities/{{community-id}}/logo
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/octet-stream
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

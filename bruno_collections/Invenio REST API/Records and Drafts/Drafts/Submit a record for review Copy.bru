@@ -1,0 +1,41 @@
+meta {
+  name: Submit a record for review Copy
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/actions/submit-review
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "payload": {
+      "content": "Thank you in advance for the review.",
+      "format": "html"
+    }
+  }
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(202);
+  })
+  
+  const res = res.getBody()
+  
+  if (res){
+  
+      // set environment variable
+      bru.setEnvVar("request_id", res.id)
+  }
+  else {
+      console.log("draft-id fail to be set, Please check test in create a draft record")
+  }
+}

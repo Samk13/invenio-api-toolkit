@@ -1,0 +1,21 @@
+meta {
+  name: Get a Community
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/api/communities/{{community-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

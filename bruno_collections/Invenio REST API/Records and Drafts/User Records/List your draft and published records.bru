@@ -1,0 +1,23 @@
+meta {
+  name: List your draft and published records
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/user/records
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~q: null
+  ~sort: mostviewed
+  ~size: 1
+  ~page: 1
+  ~allversions: True
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

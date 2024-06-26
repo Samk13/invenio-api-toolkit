@@ -1,0 +1,50 @@
+meta {
+  name: Search Featured Communities
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/communities/featured
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~prettyprint: 1
+  ~q: test
+  ~size: 2
+  ~page: 1
+  ~type: 
+}
+
+headers {
+  accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+  
+  
+  
+  
+  res = res.getBody()
+  // res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))
+  
+  // set env to first community found, can produce err if there is no communities
+  bru.setEnvVar("featured-community-id", res.hits.total > 0 ? 
+      res.hits.hits[0].id : 
+      console.warn("no communities found!"))
+  bru.setEnvVar("featured-communities", res.hits.hits.map(hit => hit.id) )
+  
+  console.info(`featured-community-id = ${bru.getEnvVar("featured-community-id")}`)
+  
+  console.info(`featured-communities = ${bru.getEnvVar("featured-communities")}`)
+  
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Search public members
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/communities/{{community-id}}/members/public
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: null
+  ~size: null
+  ~page: null
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

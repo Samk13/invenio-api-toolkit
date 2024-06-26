@@ -1,0 +1,21 @@
+meta {
+  name: step-3- Complete a draft file upload
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/commit
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Invite user members
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseURL}}/api/communities/{{community-id}}/invitations
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "members":[
+          {
+              "id":"1",
+              "type":"user"
+          }
+      ],
+      "role":"curator",
+      "message":"<p>Hi</p>"
+  }
+}

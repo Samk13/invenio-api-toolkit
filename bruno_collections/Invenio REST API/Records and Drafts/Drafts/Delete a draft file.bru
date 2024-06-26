@@ -1,0 +1,15 @@
+meta {
+  name: Delete a draft file
+  type: http
+  seq: 14
+}
+
+delete {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

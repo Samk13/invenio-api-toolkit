@@ -1,0 +1,45 @@
+meta {
+  name: Rename a Community
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseURL}}/api/communities/{{community-id}}/rename
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "access": {
+      "visibility": "public",
+      "member_policy": "open",
+      "record_policy": "open"
+    },
+    "slug": "public-community-{{$randomProductAdjective}}-{{$randomVerb}}",
+    "metadata": {
+      "title": "public-community-{{$randomProductAdjective}}-{{$randomVerb}}",
+      "description": "{{$randomCatchPhraseDescriptor}}",
+      "type": {
+        "id": "event"
+       },
+      "curation_policy": "This is the kind of records we accept.",
+      "page": "{{$randomJobDescriptor}}",
+      "website": "https://kth.se/",
+      "organizations": [{
+        "name": "KTH"
+      }]
+    }
+  }
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

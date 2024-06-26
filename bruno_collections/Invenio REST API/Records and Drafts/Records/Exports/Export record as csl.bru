@@ -1,0 +1,21 @@
+meta {
+  name: Export record as csl
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseURL}}/records/{{record-id}}/export/csl
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+  
+}

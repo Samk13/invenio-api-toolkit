@@ -1,0 +1,24 @@
+meta {
+  name: Get a record by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/api/records/{{record-id}}
+  body: none
+  auth: bearer
+}
+
+headers {
+  accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => expect(res.getStatus()).to.equal(200))
+  
+}

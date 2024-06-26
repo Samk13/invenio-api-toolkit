@@ -1,0 +1,26 @@
+meta {
+  name: step-2- Upload a draft file-s content
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/content
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/octet-stream
+  ~content-length: 
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(201);
+  })
+}

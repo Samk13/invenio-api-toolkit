@@ -1,0 +1,32 @@
+meta {
+  name: Create an access link
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/api/records/{{record-id}}/access/links
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "permission": "view", // view, preview, edit
+    "expires_at": "2024-11-06"
+  }
+}
+
+tests {
+  test("Should return 201", () => {
+      expect(res.getStatus()).to.equal(201);
+  });
+  
+  let res = res.getBody();
+  bru.setEnvVar("link-id", res.id || console.warn("no link created!"));
+  console.info(`link-id = ${bru.getEnvVar("link-id")}`);
+}

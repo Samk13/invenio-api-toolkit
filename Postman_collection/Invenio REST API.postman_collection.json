@@ -1,0 +1,6369 @@
+{
+	"info": {
+		"_postman_id": "9f4b3028-97b5-4db2-83e7-b6d2a789582b",
+		"name": "Invenio REST API",
+		"description": "## **Summary**\n\nThe following document is a reference guide for all the REST APIs that InvenioRDM exposes.\n\nsee [complete documentation](https://inveniordm.docs.cern.ch/reference/rest_api_index/)\n\n> Check each request script tag, as some of them, like \\`Create Community\\`, `Search Community` and many others, as it will automatically set certain variables. reducing manual configuration while testing.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8744627",
+		"_collection_link": "https://commercedev.postman.co/workspace/KTH-rdm~80fee382-59ba-4cf1-86bb-b7c3dae7b0e8/collection/8744627-9f4b3028-97b5-4db2-83e7-b6d2a789582b?action=share&source=collection_link&creator=8744627"
+	},
+	"item": [
+		{
+			"name": "Communities",
+			"item": [
+				{
+					"name": "Communities_logo",
+					"item": [
+						{
+							"name": "Update Community Logo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/octet-stream",
+										"description": "Should always be application/octet-stream."
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/home/samk13/Pictures/BG/447998718_8014299461936530_1173397621506354021_n.jpg"
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/logo",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"logo"
+									]
+								},
+								"description": "Update Community Logo"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Community Logo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/logo",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"logo"
+									]
+								},
+								"description": "Get Community Logo"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Community Logo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/logo",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"logo"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "## [See Communities Logo API docs](https://inveniordm.docs.cern.ch/reference/rest_api_communities/#update-community-logo)"
+				},
+				{
+					"name": "Featured Communities",
+					"item": [
+						{
+							"name": "Create a Featured Community Entry v11 beta",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"start_date\": \"{{$timestamp}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/featured",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"featured"
+									]
+								},
+								"description": "Only communities with a featured timestamp before the current time are retrieved. They are sorted by the beginning of their latest featured timestamp (e.g. A is featured starting with 2022-06-01, B is featured starting with 2022-06-03 then the order will be \\[B, A\\])."
+							},
+							"response": []
+						},
+						{
+							"name": "Search Featured Communities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"res = pm.response.json()\r",
+											"// res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))\r",
+											"\r",
+											"// set env to first community found, can produce err if there is no communities\r",
+											"pm.environment.set(\"featured-community-id\", res.hits.total > 0 ? \r",
+											"    res.hits.hits[0].id : \r",
+											"    console.warn(\"no communities found!\"))\r",
+											"pm.environment.set(\"featured-communities\", res.hits.hits.map(hit => hit.id) )\r",
+											"\r",
+											"console.info(`featured-community-id = ${pm.environment.get(\"featured-community-id\")}`)\r",
+											"\r",
+											"console.info(`featured-communities = ${pm.environment.get(\"featured-communities\")}`)\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/communities/featured",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"featured"
+									],
+									"query": [
+										{
+											"key": "prettyprint",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "test",
+											"description": "Search query used to filter results based on ElasticSearch's query string syntax.",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"description": "Specify number of items in the results page (default: 10)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Specify the page of results.",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "",
+											"description": "Specify community type as one of organization, event, topic or project.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "### Search Communities"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Featured Community Entry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"start_date\": \"2024-06-12T23:24:15.373Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/featured",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"featured"
+									]
+								},
+								"description": "### Create a Community"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Featured Community Entries",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})\r",
+											"\r",
+											"\r",
+											"res = pm.response.json()\r",
+											"// res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))\r",
+											"\r",
+											"// set env to first community found, can produce err if there is no communities\r",
+											"pm.environment.set(\"featured-entry-id\", res.hits.total > 0 ? \r",
+											"    res.hits.hits[0].id : \r",
+											"    console.warn(\"no featured-entry-id found!\"))\r",
+											"\r",
+											"console.info(`featured-entry-id = ${pm.environment.get(\"featured-entry-id\")}`)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/featured",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"featured"
+									]
+								},
+								"description": "### Create a Community"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Featured Community Entry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"start_date\": \"2024-06-11 10:13:13.945755\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/featured/{{featured-entry-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"featured",
+										"{{featured-entry-id}}"
+									]
+								},
+								"description": "### Create a Community"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Featured Community Entry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"start_date\": \"2024-06-11 10:13:13.945755\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/communities/{{community-id}}/featured/{{featured-entry-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"communities",
+										"{{community-id}}",
+										"featured",
+										"{{featured-entry-id}}"
+									]
+								},
+								"description": "### Create a Community"
+							},
+							"response": []
+						}
+					],
+					"description": "[Featured Communities](https://inveniordm.docs.cern.ch/reference/rest_api_communities/#featured-communities)\n\nThe goal of featured communities is to increase the level of awareness for a community. This could be due to special research output, because a community is new or any other reason a community should be put in the spotlight.\n\n> Only public communities may be featured, as they can be accessed by everyone. \n  \n> Only the search is available to any user. Other endpoints require the `system_process` permission need."
+				},
+				{
+					"name": "Create a Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 201 res\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"})\r",
+									"\r",
+									"const res = pm.response.json()\r",
+									"\r",
+									"\r",
+									"pm.test(\"slug and id found\", () => {\r",
+									"    pm.expect(res).to.be.an('object')\r",
+									"    pm.expect(res.slug.length).to.be.greaterThan(1)\r",
+									"    pm.expect(res.id.length).to.be.greaterThan(10)\r",
+									"})\r",
+									"\r",
+									"if (pm.expect(res.slug.length).to.be.greaterThan(1)){\r",
+									"\r",
+									"    // set environment variables: it's been set also in get all communities\r",
+									"    pm.environment.set(\"community-id\", res.id)\r",
+									"    pm.environment.set(\"community-slug\", res.slug)\r",
+									"    console.info(`community-id = ${pm.environment.get(\"community-id\")}`)\r",
+									"    console.info(`community-slug = ${pm.environment.get(\"community-slug\")}`)\r",
+									"}\r",
+									"else {\r",
+									"    console.warn(\"no community is been created, please check api/communities\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"access\": {\n        \"visibility\": \"public\",\n        \"member_policy\": \"open\",\n        \"record_policy\": \"open\",\n        \"review_policy\": \"closed\",\n        \"members_visibility\": \"restricted\"\n    },\n    \"slug\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n    \"metadata\": {\n        \"title\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n        \"description\": \"{{$randomCatchPhraseDescriptor}}\",\n        \"type\": {\n            \"id\": \"event\"\n        },\n        \"curation_policy\": \"This is the kind of records we accept.\",\n        \"page\": \"{{$randomJobDescriptor}}\",\n        \"website\": \"https://kth.se/\",\n        \"organizations\": [\n            {\n                \"name\": \"KTH\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							]
+						},
+						"description": "### Create a Community"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"access\": {\n    \"visibility\": \"restricted\",\n    \"member_policy\": \"closed\",\n    \"record_policy\": \"closed\"\n  },\n  \"slug\": \"{{community-slug}}\",\n  \"metadata\": {\n    \"title\": \"sam-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n    \"description\": \"{{$randomCatchPhraseDescriptor}}\",\n    \"type\": {\n      \"id\": \"event\"\n     },\n    \"curation_policy\": \"This is the kind of records we accept.\",\n    \"page\": \"Information for my community.\",\n    \"website\": \"https://inveniosoftware.org/\",\n    \"organizations\": [{\n      \"name\": \"KTH\"\n    }]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 204 res\", () => {\r",
+									"    pm.response.to.have.status(204);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Communities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"res = pm.response.json()\r",
+									"// res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))\r",
+									"\r",
+									"// set env to first community found, can produce err if there is no communities\r",
+									"pm.environment.set(\"community-id\", res.hits.total > 0 ? \r",
+									"    res.hits.hits[0].id : \r",
+									"    console.warn(\"no communities found!\"))\r",
+									"pm.environment.set(\"community-ids\", res.hits.hits.map(hit => hit.id) )\r",
+									"\r",
+									"console.info(`community-ids = ${pm.environment.get(\"community-ids\")}`)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							],
+							"query": [
+								{
+									"key": "prettyprint",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "test",
+									"description": "Search query used to filter results based on ElasticSearch's query string syntax.\n",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "updated-asc",
+									"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"newest\", \"oldest\", \"updated-desc\", \"updated-asc\", \"version\" (default: \"bestmatch\" or \"newest\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"description": "Specify number of items in the results page (default: 10)",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "Specify community type as one of organization, event, topic or project.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "### Search Communities"
+					},
+					"response": []
+				},
+				{
+					"name": "Search User Communities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"res = pm.response.json()\r",
+									"// res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))\r",
+									"\r",
+									"res.hits.hits.map(c => console.log(c.slug))\r",
+									"// set env to first community found, can produce err if there is no communities\r",
+									"pm.environment.set(\"community-id\", res.hits.total > 0 ? \r",
+									"    res.hits.hits[0].id : \r",
+									"    console.warn(\"no communities found!\"))\r",
+									"pm.environment.set(\"community-ids\", res.hits.hits.map(hit => hit.id) )\r",
+									"console.info(`community-ids = ${pm.environment.get(\"community-ids\")}`)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/user/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"communities"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "project",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "oldest",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename a Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"access\": {\r\n    \"visibility\": \"public\",\r\n    \"member_policy\": \"open\",\r\n    \"record_policy\": \"open\"\r\n  },\r\n  \"slug\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\r\n  \"metadata\": {\r\n    \"title\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\r\n    \"description\": \"{{$randomCatchPhraseDescriptor}}\",\r\n    \"type\": {\r\n      \"id\": \"event\"\r\n     },\r\n    \"curation_policy\": \"This is the kind of records we accept.\",\r\n    \"page\": \"{{$randomJobDescriptor}}\",\r\n    \"website\": \"https://kth.se/\",\r\n    \"organizations\": [{\r\n      \"name\": \"KTH\"\r\n    }]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/rename",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## [See Communities API docs](https://inveniordm.docs.cern.ch/reference/rest_api_communities/#communities)\n\n> Check each request script tag, as some of them, like Create Community, will automatically set certain variables. reducing manual configuration."
+		},
+		{
+			"name": "Community members",
+			"item": [
+				{
+					"name": "Search members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"members"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": null,
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"name\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": null,
+									"description": "Specify number of items in the results page (default: 10).\n",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Specify the page of results.",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": null,
+									"description": "Filter by role (one of reader, curator, manager, owner).",
+									"disabled": true
+								},
+								{
+									"key": "visibility",
+									"value": null,
+									"description": "Filter by visibility (one of true, false)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search public members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/members/public",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"members",
+								"public"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": null,
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": null,
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Specify the page of results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search invitations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/invitations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"invitations"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "test",
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "bestmatch",
+									"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"name\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "owner",
+									"description": "Filter by role (one of reader, curator, manager, owner).",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "accepted",
+									"description": "Filter by status (one of submitted, accepted, declined, expired, cancelled)",
+									"disabled": true
+								},
+								{
+									"key": "is_open",
+									"value": "false",
+									"description": "Filter by open/closed (one of true, false)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add group members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\r\n        {\r\n            \"id\": \"admin\",\r\n            \"type\": \"group\"\r\n        }\r\n    ],\r\n    \"role\": \"curator\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invite user members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\":[\r\n        {\r\n            \"id\":\"1\",\r\n            \"type\":\"user\"\r\n        }\r\n    ],\r\n    \"role\":\"curator\",\r\n    \"message\":\"<p>Hi</p>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/invitations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\r\n        {\r\n            \"id\": \"admin\",\r\n            \"type\": \"group\"\r\n        },\r\n        {\r\n            \"id\": \"3\",\r\n            \"type\": \"user\"\r\n        }\r\n    ],\r\n    \"visible\": false,\r\n    \"role\": \"reader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update invitations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\r\n        {\r\n            \"id\": \"admin\",\r\n            \"type\": \"group\"\r\n        },\r\n        {\r\n            \"id\": \"3\",\r\n            \"type\": \"user\"\r\n        }\r\n    ],\r\n    \"visible\": false,\r\n    \"role\": \"reader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/invitations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove members / leave community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\r\n        {\r\n            \"type\": \"user\",\r\n            \"id\": \"1\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}",
+								"members"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The members API allows you to manage members of a community.\n\n> The members REST API separates writes from reads. This means all state changing requests (`POST`, `PUT` or `DELETE`) does not return any results (i.e. 204 HTTP response code). You must issue a `GET` request to retrieve the updated object. Changes are applied asynchronously so you may get outdated information if you query right after an update. Changes are normally applied within seconds. \n  \n\nThe following general restrictions apply to the member API:\n\n- Owners can manage all roles including owners (except themselves).\n    \n- Managers can manage all roles except owners (except themselves).\n    \n- A community MUST always have at least one owner.\n    \n- User can leave a community.\n    \n- Members can change their own visibility to both public/hidden.\n    \n- Owners/managers can change visibility of members to hidden."
+		},
+		{
+			"name": "Records and Drafts",
+			"item": [
+				{
+					"name": "Drafts",
+					"item": [
+						{
+							"name": "Create a draft record Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})\r",
+											"\r",
+											"const res = pm.response.json()\r",
+											"\r",
+											"if (res){\r",
+											"\r",
+											"    // set environment variable\r",
+											"    pm.environment.set(\"draft-id\", res.id ? res.id : \"\")\r",
+											"    console.info(`draft-id = ${pm.environment.get(\"draft-id\")}`)\r",
+											"}\r",
+											"else {\r",
+											"    console.log(\"draft-id fail to be set, Please check test in create a draft record\")\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"access\": {\r\n    \"record\": \"public\",\r\n    \"files\": \"public\"\r\n  },\r\n  \"files\": {\r\n    \"enabled\": true\r\n  },\r\n  \"metadata\": {\r\n    \"creators\": [{\r\n        \"person_or_org\": {\r\n            \"family_name\": \"Arbid\",\r\n            \"given_name\": \"Sam\",\r\n            \"identifiers\": [\r\n                {\r\n                    \"identifier\": \"0000-0002-1825-0097\",\r\n                    \"scheme\": \"orcid\"\r\n                }\r\n            ],\r\n            \"name\": \"Bowman, Kiara\",\r\n            \"type\": \"personal\"\r\n        },\r\n        \"affiliations\": [\r\n          {\r\n            \"id\": \"01ggx4157\",\r\n            \"name\": \"Entity One\"\r\n          }\r\n        ],\r\n        \"role\": {\r\n            \"id\": \"other\"\r\n        }\r\n    }],\r\n    \"publication_date\": \"2020-06-01\",\r\n    \"resource_type\": { \"id\": \"image-photo\" },\r\n    \"title\": \"Sam test API draft request {{$randomWord}}\"\r\n  },\r\n  \"type\": \"community-submission\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "step[1] Start draft file upload(s)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// File name should match the file uploaded in step[2]\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"key\": \"{{file-name}}\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "step[2] Upload a draft file's content",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/octet-stream",
+										"description": "Should always be application/octet-stream."
+									},
+									{
+										"key": "content-length",
+										"value": "",
+										"description": "Size of the content in bytes (optional).",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "345631622_255373457051004_7339351915165412664_n.jpg"
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/content",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files",
+										"{{file-name}}",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "step[3] Complete a draft file upload",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/commit",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files",
+										"{{file-name}}",
+										"commit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create/update a review request Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {\r",
+											"    pm.response.to.have.status(201);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"receiver\": {\r\n    \"community\": \"{{community-id}}\"\r\n  },\r\n  \"type\": \"community-submission\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/review",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit a record for review Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 201 res\", () => {",
+											"    pm.response.to.have.status(202);",
+											"})",
+											"",
+											"const res = pm.response.json()",
+											"",
+											"if (res){",
+											"",
+											"    // set environment variable",
+											"    pm.environment.set(\"request_id\", res.id)",
+											"}",
+											"else {",
+											"    console.log(\"draft-id fail to be set, Please check test in create a draft record\")",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\r\n    \"content\": \"Thank you in advance for the review.\",\r\n    \"format\": \"html\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/actions/submit-review",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"actions",
+										"submit-review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish a draft record",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/actions/publish",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"actions",
+										"publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Link files from previous version",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/actions/files-import",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"actions",
+										"files-import"
+									]
+								},
+								"description": "Links all files from the previous version to the new record.\n\n> Note this call links all files from the previous version. Any files to be removed or updated can be [deleted](https://inveniordm.docs.cern.ch/reference/rest_api_drafts_records/#delete-a-draft-file) from the draft version and remain attached to the previous version."
+							},
+							"response": []
+						},
+						{
+							"name": "Edit a published record (Create a draft record from a published record)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft"
+									]
+								},
+								"description": "### Edit a published record (Create a draft record from a published record)"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete/discard a draft record",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft"
+									]
+								},
+								"description": "Deleting a draft for an unpublished record will remove the draft and associated files from the system.\n\nDeleting a draft for a published record will remove the draft but not the published record."
+							},
+							"response": []
+						},
+						{
+							"name": "List a draft's files",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a draft file's metadata",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files",
+										"{{file-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download a draft file",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/content",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files",
+										"{{file-name}}",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a draft file",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft",
+										"files",
+										"{{file-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a draft record",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"access\": {\r\n    \"record\": \"public\",\r\n    \"files\": \"public\"\r\n  },\r\n  \"files\": {\r\n    \"enabled\": \"false\"\r\n  },\r\n  \"metadata\": {\r\n    \"creators\": [\r\n                {\r\n                    \"person_or_org\": {\r\n                        \"family_name\": \"Bowman\",\r\n                        \"given_name\": \"Kiara\",\r\n                        \"identifiers\": [\r\n                            {\r\n                                \"identifier\": \"0000-0002-1825-0097\",\r\n                                \"scheme\": \"orcid\"\r\n                            }\r\n                        ],\r\n                        \"name\": \"Bowman, Kiara\",\r\n                        \"type\": \"personal\"\r\n                    },\r\n                    \"role\": {\r\n                        \"id\": \"other\"\r\n                    }\r\n                },\r\n      {\r\n        \"person_or_org\": {\r\n          \"family_name\": \"Lönneborg\",\r\n          \"given_name\": \"Rosa\",\r\n          \"identifiers\": [\r\n            {\"scheme\": \"orcid\", \"identifier\": \"0000-0002-9548-6431\"}\r\n          ],\r\n          \"name\": \"Lönneborg, Rosa\",\r\n          \"type\": \"personal\"\r\n        },\r\n        \"affiliations\": [\r\n          {\r\n            \"name\": \"KTH Royal Institute of Technology\"\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"publication_date\": \"2020-06-01\",\r\n    \"resource_type\": { \"id\": \"image-photo\" },\r\n    \"title\": \"Update title using API draft request\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a draft records",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{draft-id}}/draft",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{draft-id}}",
+										"draft"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Used for interacting with unpublished or edited draft records.\n\n  \nSee [Drafts docs](https://inveniordm.docs.cern.ch/reference/rest_api_drafts_records/#drafts)"
+				},
+				{
+					"name": "Records",
+					"item": [
+						{
+							"name": "Exports",
+							"item": [
+								{
+									"name": "Export record as JSON",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{BearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{baseURL}}/records/{{record-id}}/export/json",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"records",
+												"{{record-id}}",
+												"export",
+												"json"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export record as dublincore XML",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{BearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "file",
+											"file": {
+												"src": ""
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/records/{{record-id}}/export/dublincore",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"records",
+												"{{record-id}}",
+												"export",
+												"dublincore"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export record as datacite-xml",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{BearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "file",
+											"file": {
+												"src": ""
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/records/{{record-id}}/export/datacite-xml",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"records",
+												"{{record-id}}",
+												"export",
+												"datacite-xml"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export record as datacite-json",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{BearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "file",
+											"file": {
+												"src": ""
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/records/{{record-id}}/export/datacite-json",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"records",
+												"{{record-id}}",
+												"export",
+												"datacite-json"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export record as csl",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{BearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "file",
+											"file": {
+												"src": ""
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/records/{{record-id}}/export/csl",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"records",
+												"{{record-id}}",
+												"export",
+												"csl"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Search records",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											"\r",
+											"const res = pm.response.json()\r",
+											"\r",
+											"// grab id result from the first result in the array\r",
+											"const id = res.hits.total > 0 ? res.hits.hits[0]?.id: \"\"\r",
+											"const parent_id = res.hits.total > 0 ? res.hits.hits[0]?.parent.id: \"\"\r",
+											"\r",
+											"\r",
+											"// set environment variable\r",
+											"id ? pm.environment.set(\"record-id\", id) : console.warn(`No records found ${id}`)\r",
+											"parent_id ? pm.environment.set(\"parent-id\", parent_id) : console.warn(`No records found ${id}`)\r",
+											"\r",
+											"console.info(`record-id = ${pm.environment.get(\"record-id\")}`)\r",
+											"console.info(`parent-id = ${pm.environment.get(\"parent-id\")}`)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/records",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "",
+											"description": "Search query used to filter results based on ElasticSearch's query string syntax.",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "newest",
+											"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"newest\", \"oldest\", \"updated-desc\", \"updated-asc\", \"version\", \"mostviewed\", \"mostdownloaded\" (default: \"bestmatch\" or \"newest\").",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": null,
+											"description": "Specify number of items in the results page (default: 10).\n",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Specify the page of results.",
+											"disabled": true
+										},
+										{
+											"key": "allversions",
+											"value": "True",
+											"description": "Specify if all versions should be included (default: False, displays just latest version).",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Sort options for records can be configured using the `RDM_SORT_OPTIONS` config variable as described in the [search customization](https://inveniordm.docs.cern.ch/customize/search/) section. Note that `\"bestmatch\"` is only available as a sort option on requests that provide a query string as a `q` parameter. Otherwise `\"bestmatch\"` is ignored and the default `\"newest\"` sort is used. Queries sorted by `\"mostviewed\"` and `\"mostdownloaded\"` are in descending order."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Record community",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											"\r",
+											"const res = pm.response.json()\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"communities\": [\r\n        { \r\n            \"id\": \"{{community-id}}\"\r\n        },\r\n        { \r\n            \"id\": \"{{community-id}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/communities",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"communities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a record by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"description": "- application/json (default)\n- application/vnd.inveniordm.v1+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List a record's files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/files",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a record file's metadata",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/files/{{file-name}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"files",
+										"{{file-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download a record file",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/files/{{file-name}}/content",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"files",
+										"{{file-name}}",
+										"content"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "After sending \\`Get all Recods\\`request in the collection, it will auto populate the \\`record-id\\` variable, chech the test page for each request to better understand."
+				},
+				{
+					"name": "Versions",
+					"item": [
+						{
+							"name": "Create a new version",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/versions",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"versions"
+									]
+								},
+								"description": "Notice that a new draft is returned with `publication_date` and `version` removed (as those are typically replaced in a new version). The `versions.index` is also incremented. The `{parent-id}` connects the different versions together. The new draft version has no files. However, it is possible to link files from the previous version (avoiding the need to re-upload, which would also cause duplication in the file store). See below.\n\nUse [Publish a draft record](https://inveniordm.docs.cern.ch/reference/rest_api_drafts_records/#publish-a-draft-record) to publish it."
+							},
+							"response": []
+						},
+						{
+							"name": "Get all versions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/versions",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"versions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get latest version",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/versions/latest",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"versions",
+										"latest"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Access links",
+					"item": [
+						{
+							"name": "Create an access link",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Should return 201\", () => {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"let res = pm.response.json();",
+											"pm.environment.set(\"link-id\", res.id || console.warn(\"no link created!\"));",
+											"console.info(`link-id = ${pm.environment.get(\"link-id\")}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permission\": \"view\", // view, preview, edit\r\n  \"expires_at\": \"2024-11-06\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/access/links",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"access",
+										"links"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an access link by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permission\": \"view\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"access",
+										"links",
+										"{{link-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an access link",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permission\": \"edit\",\r\n  \"expires_at\": \"2024-11-06\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"access",
+										"links",
+										"{{link-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an access link",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"access",
+										"links",
+										"{{link-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List access links",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Should return 200\", () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"let res = pm.response.json();",
+											"res.hits.hits[0]?.id  && pm.environment.set(\"link-id\", res.hits.hits[0].id || console.warn(\"no link created!\"));",
+											"console.info(`link-id = ${pm.environment.get(\"link-id\")}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/records/{{record-id}}/access/links",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"{{record-id}}",
+										"access",
+										"links"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Access links are URLs that can be shared with others to give them access and permissions to a record/draft."
+				},
+				{
+					"name": "User Records",
+					"item": [
+						{
+							"name": "List your draft and published records",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/user/records",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"records"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": null,
+											"description": "Search query used to filter results based on ElasticSearch's query string syntax.",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "mostviewed",
+											"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"newest\", \"oldest\", \"updated-desc\", \"updated-asc\", \"version\", \"mostviewed\", \"mostdownloaded\" (default: \"bestmatch\" or \"newest\").",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "1",
+											"description": "Specify number of items in the results page (default: 10).",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Specify the page of results.",
+											"disabled": true
+										},
+										{
+											"key": "allversions",
+											"value": "True",
+											"description": "Specify if all versions should be included.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Used for interacting with the records and drafts you can edit."
+				}
+			]
+		},
+		{
+			"name": "Requests",
+			"item": [
+				{
+					"name": "Request Actions",
+					"item": [
+						{
+							"name": "Accept a request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\"content\": \"You are in!\", \"format\": \"html\"}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/actions/accept",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"actions",
+										"accept"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel a request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\"content\": \"You are in!\", \"format\": \"html\"}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/actions/cancel",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"actions",
+										"cancel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline a request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\"content\": \"You are not in!\", \"format\": \"html\"}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/actions/decline",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"actions",
+										"decline"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Used for interacting with a request's lifecyle.\n\nA request is submitted via the [draft and record APIs](https://inveniordm.docs.cern.ch/reference/rest_api_drafts_records/)."
+				},
+				{
+					"name": "Request Events",
+					"item": [
+						{
+							"name": "Submit a comment on a request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\r\n    \"content\": \"I would use these subject terms to align the record with others in the community.\",\r\n    \"format\": \"html\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/comments",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a comment",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payload\": {\r\n    \"content\": \"I would use these subject terms to align this record and the other one with others in the community.\",\r\n    \"format\": \"html\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"requests",
+										"{{request_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Used for interacting with request events."
+				},
+				{
+					"name": "Get a request's timeline",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/requests/{{request_id}}/timeline",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"{{request_id}}",
+								"timeline"
+							]
+						},
+						"description": "The timeline endpoint can be searched, sorted, filtered, paginated etc., like any other InvenioRDM search endpoint.\n\n[<br>](https://inveniordm.docs.cern.ch/reference/rest_api_members/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Search requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// get id value dynamically \r",
+									"\r",
+									"const response = pm.response.json()\r",
+									"\r",
+									"console.log(response)\r",
+									"// this is just an example need to double check it when you run the server!\r",
+									"\r",
+									"pm.environment.set(\"request_id\", response.hits.hits[0].id)\r",
+									"\r",
+									"console.info(`request_id = ${pm.environment.get(\"request_id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/requests",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"requests"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "",
+									"description": "Search query used to filter results based on ElasticSearch's query string syntax.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Sort search results. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"newest\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "Specify the page of results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/requests/{{request_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"{{request_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"expires_at\": \"2024-06-11\",\r\n  \"id\": \"{{record-id}}\",\r\n  \"number\": \"1\",\r\n  \"revision_id\": 1,\r\n  \"status\": \"draft\",\r\n  \"title\": \"A new title\",\r\n  \"type\": \"default-request\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/requests/{{request_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"{{request_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Used for interacting with requests."
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Search users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"console.log(id)",
+									"",
+									"// set environment variable",
+									"res ? pm.environment.set(\"user-id\", id ? id : \"\") : console.log(`user-id is ${id}`)",
+									"",
+									"console.info(`user-id = ${pm.environment.get(\"user-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "test@test.com",
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "bestmatch",
+									"description": "Sort search results. Customizable. Built-in options are \"bestmatch\", \"username\", \"email\", \"domain\", \"newest\", \"oldest\", \"updated\" (default: \"bestmatch\" or \"newest\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/{{user-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get avatar for user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/{{user-id}}/avatar.svg",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user-id}}",
+								"avatar.svg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search users Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/user/records",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"records"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Query and manage users.\n\nOnly users fulfilling the conditions below will be present in the REST API.\n\n- User MUST have a confirmed email address.\n    \n- User MUST be active.\n    \n- User MUST have set the profile visibility to public.\n    \n\nRequests to search REST API endpoints require authentication. Results sets are limited to max 10 results per query (i.e. pagination is not supported)."
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get a review request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/records/{{record-id}}/draft/review",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"{{record-id}}",
+								"draft",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create/update a review request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"receiver\": {\r\n    \"community\": \"{{community-id}}\"\r\n  },\r\n  \"type\": \"community-submission\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/review",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"{{draft-id}}",
+								"draft",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a review request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () =>  pm.response.to.have.status(204))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"receiver\": {\r\n    \"community\": \"{{community-id}}\"\r\n  },\r\n  \"type\": \"community-submission\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/review",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"{{draft-id}}",
+								"draft",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit a record for review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () =>  pm.response.to.have.status(201))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payload\": {\r\n    \"content\": \"Thank you in advance for the review.\",\r\n    \"format\": \"html\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/records/{{draft-id}}/draft/actions/submit-review",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"{{draft-id}}",
+								"draft",
+								"actions",
+								"submit-review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Review requests are based on the [request APIs](https://inveniordm.docs.cern.ch/reference/rest_api_requests/). Check their documentation to see how you can [post comments](https://inveniordm.docs.cern.ch/reference/rest_api_requests/#request-events) and [manage](https://inveniordm.docs.cern.ch/reference/rest_api_requests/#request-actions) your review request."
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Search groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/groups",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": null,
+									"description": "Search query used to filter results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  group by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/groups/{{group-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"{{group-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get avatar for group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/groups/{{group-id}}/avatar.svg",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"{{group-id}}",
+								"avatar.svg"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Query and manage groups.\n\n> Requests to search REST API endpoints require authentication. Results sets are limited to max 10 results per query (i.e. pagination is not supported)."
+		},
+		{
+			"name": "Vocabularies",
+			"item": [
+				{
+					"name": "Search vocabularies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/vnd.inveniordm.v1+json",
+								"description": "application/json (default)\n- application/vnd.inveniordm.v1+json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/{{vocabularies-type}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"{{vocabularies-type}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "arabic",
+									"description": "Search query used to filter results based on ElasticSearch's query string syntax.",
+									"disabled": true
+								},
+								{
+									"key": "suggest",
+									"value": null,
+									"description": "One or more words used to suggest records as the user types (i.e. auto-complete).",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": null,
+									"description": "Filter results to the tag string",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "bestmatch",
+									"description": "Sort search results. Unless overridden by a specific vocabulary, the built-in options are \"bestmatch\", \"title\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"title\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								},
+								{
+									"key": "ln",
+									"value": "en_US",
+									"description": "Locale used to localize the title and description (e.g. en or en_US)",
+									"disabled": true
+								},
+								{
+									"key": "accept-language",
+									"value": "en_US",
+									"description": "Locale used to localize the title and description (e.g. en or en_US)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a vocabulary record by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/{{vocabularies-type}}/{{vocabularies-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"{{vocabularies-type}}",
+								"{{vocabularies-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search vocabularies resourcetypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/resourcetypes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"resourcetypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search vocabularies languages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/languages",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search vocabularies licenses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/licenses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"licenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search vocabularies relationtypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/relationtypes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"relationtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vocabularies contributorsroles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/contributorsroles",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"contributorsroles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vocabularies descriptiontypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/descriptiontypes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"descriptiontypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vocabularies datetypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/datetypes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"datetypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vocabularies creatorsroles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"vocabularies-id\", id ? id : \"\") : console.log(`vocabularies-id is ${id}`)",
+									"console.info(`vocabularies-id = ${pm.environment.get(\"vocabularies-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/vocabularies/creatorsroles",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vocabularies",
+								"creatorsroles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vocabularies affiliations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id || \"02ex6cf31\"",
+									"",
+									"// set environment variable",
+									"res ? pm.environment.set(\"voc-affiliation-id\", id): console.log(`voc-affiliation-id is ${id}`)",
+									"console.info(`voc-affiliation-id = ${pm.environment.get(\"voc-affiliation-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/affiliations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"affiliations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vocabularies affiliations by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/affiliations/{{voc-affiliation-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"affiliations",
+								"{{voc-affiliation-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vocabularies subjects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res?.hits?.hits[0]?.id || \"\"",
+									"",
+									"    // set environment variable",
+									"res ? pm.environment.set(\"voc-subjects-id\", id) : console.log(`voc-subjects-id is ${id}`)",
+									"console.info(`voc-subjects-id = ${pm.environment.get(\"voc-subjects-id\")}`)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/subjects?suggest={{subject-query}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"subjects"
+							],
+							"query": [
+								{
+									"key": "suggest",
+									"value": "{{subject-query}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "X Specific vocabularies subjects by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/subjects/{{voc-subjects-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"subjects",
+								"{{voc-subjects-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Used for accessing vocabulary records. Currently the following vocabularies are supported:\n\n- Languages (ISO 639-3 language codes)\n    \n- Licenses (SPDX licenses)\n    \n- Resource types (custom)"
+		},
+		{
+			"name": "Vocabularies Names",
+			"item": [
+				{
+					"name": "Get names",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0]?.id || \"\"",
+									"",
+									"// set environment variable",
+									"res ? pm.environment.set(\"voc-names-id\", id) : console.log(`names id is ${id}`)",
+									"console.info(`voc-names-id = ${pm.environment.get(\"voc-names-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/names",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"names"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "smith",
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort search results. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"name\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": null,
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Specify the page of results.",
+									"disabled": true
+								},
+								{
+									"key": "suggest",
+									"value": null,
+									"description": "\"Search as you type\" query.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get names by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/names/{{voc-names-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"names",
+								"{{voc-names-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vocabularies Funders",
+			"item": [
+				{
+					"name": "Specific vocabularies funders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id || \"\"",
+									"",
+									"// set environment variable",
+									" res ? pm.environment.set(\"voc-funders-id\", id) : console.log(`funders is is ${id}`)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/funders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"funders"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": null,
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "suggest",
+									"value": null,
+									"description": "\"Search as you type\" query.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "bestmatch",
+									"description": "Sort search results. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"name\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vocabularies funders by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/funders/{{voc-funders-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"funders",
+								"{{voc-funders-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Awards",
+			"item": [
+				{
+					"name": "Specific vocabularies awards",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id || \"\"",
+									"",
+									"// set environment variable",
+									" res ? pm.environment.set(\"voc-funders-id\", id) : console.log(`funders is is ${id}`)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/awards",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"awards"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": null,
+									"description": "Search query used to filter results.",
+									"disabled": true
+								},
+								{
+									"key": "suggest",
+									"value": null,
+									"description": "\"Search as you type\" query.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "bestmatch",
+									"description": "Sort search results. Built-in options are \"bestmatch\", \"name\", \"newest\", \"oldest\" (default: \"bestmatch\" or \"name\").",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Specify number of items in the results page (default: 10).",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify the page of results.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vocabularies awards by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/awards/{{voc-awards-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"awards",
+								"{{voc-awards-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin OAI-PMH Sets",
+			"item": [
+				{
+					"name": "Create a set",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.id",
+									"",
+									"",
+									"// set environment variable",
+									"res ? pm.environment.set(\"set-id\", id ? id : \"\") : console.log(`set-id is ${id}`)",
+									"",
+									"console.info(`set-id = ${pm.environment.get(\"set-id\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomWord}}\",\n    \"spec\": \"{{$randomWord}}\",\n    \"description\": \"{{$randomLoremParagraph}}\",\n    \"search_pattern\": \"{{$randomWord}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/sets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"sets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search sets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									"",
+									"const res = pm.response.json()",
+									"",
+									"// grab id result from the first result in the array",
+									"const id = res.hits.hits[0].id",
+									"",
+									"// Value is been also set in create new set endpoint test",
+									"// set environment variable",
+									"res ? pm.environment.set(\"set-id\", id ? id : \"\") : pm.environment.set(\"set-id\", \"\")",
+									"console.info(`set-id = ${pm.environment.get(\"set-id\")}`)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/sets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"sets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a set by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/sets/{{set-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"sets",
+								"{{set-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a set",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomWord}}\",\n    \"spec\": \"{{$randomWord}}\",\n    \"description\": \"{{$randomLoremParagraph}}\",\n    \"search_pattern\": \"{{$randomWord}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/sets/{{set-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"sets",
+								"{{set-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a set",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () =>  pm.response.to.have.status(204))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/sets/{{set-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"sets",
+								"{{set-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get metadata formats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () =>  pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name of the set, e.g. RDM Conference\",\n    \"spec\": \"spec of the set, e.g. rdm-conference. Used for OAI-PMH selective harvesting\",\n    \"query\": \"elasticsearch query of the set, e.g. elasticsearch_query:to_match_records\",\n    \"description\": \"description of the set, e.g. Entries presented at RDM conference\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/oaipmh/formats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"oaipmh",
+								"formats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recreate communities",
+			"item": [
+				{
+					"name": "Create restricted Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 201 res\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"})\r",
+									"\r",
+									"const res = pm.response.json()\r",
+									"\r",
+									"pm.test(\"slug and id found\", () => {\r",
+									"    pm.expect(res).to.be.an('object')\r",
+									"    pm.expect(res.slug.length).to.be.greaterThan(1)\r",
+									"    pm.expect(res.id.length).to.be.greaterThan(10)\r",
+									"})\r",
+									"\r",
+									"if (pm.expect(res.slug.length).to.be.greaterThan(1)){\r",
+									"\r",
+									"    // set environment variables: it's been set also in get all communities\r",
+									"    pm.environment.set(\"community-id\", res.id)\r",
+									"    pm.environment.set(\"community-slug\", res.slug)\r",
+									"    console.info(`community-id = ${pm.environment.get(\"community-id\")}`)\r",
+									"    console.info(`community-slug = ${pm.environment.get(\"community-slug\")}`)\r",
+									"}\r",
+									"else {\r",
+									"    console.log(\"no community is been created, please check api/communities\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"access\": {\n    \"visibility\": \"restricted\",\n    \"member_policy\": \"open\",\n    \"record_policy\": \"open\"\n  },\n  \"slug\": \"restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n  \"metadata\": {\n    \"title\": \"restricted-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n    \"description\": \"{{$randomCatchPhraseDescriptor}}\",\n    \"type\": {\n      \"id\": \"event\"\n     },\n    \"curation_policy\": \"This is the kind of records we accept.\",\n    \"page\": \"{{$randomJobDescriptor}}\",\n    \"website\": \"https://kth.se/\",\n    \"organizations\": [{\n      \"name\": \"KTH\"\n    }]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create publicCommunity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 201 res\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"})\r",
+									"\r",
+									"const res = pm.response.json()\r",
+									"\r",
+									"pm.test(\"slug and id found\", () => {\r",
+									"    pm.expect(res).to.be.an('object')\r",
+									"    pm.expect(res.slug.length).to.be.greaterThan(1)\r",
+									"    pm.expect(res.id.length).to.be.greaterThan(10)\r",
+									"})\r",
+									"\r",
+									"if (pm.expect(res.slug.length).to.be.greaterThan(1)){\r",
+									"\r",
+									"    // set environment variables: it's been set also in get all communities\r",
+									"    pm.environment.set(\"community-id\", res.id)\r",
+									"    pm.environment.set(\"community-slug\", res.slug)\r",
+									"    console.info(`community-id = ${pm.environment.get(\"community-id\")}`)\r",
+									"    console.info(`community-slug = ${pm.environment.get(\"community-slug\")}`)\r",
+									"}\r",
+									"else {\r",
+									"    console.log(\"no community is been created, please check api/communities\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"access\": {\n    \"visibility\": \"public\",\n    \"member_policy\": \"open\",\n    \"record_policy\": \"open\"\n  },\n  \"slug\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n  \"metadata\": {\n    \"title\": \"public-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n    \"description\": \"{{$randomCatchPhraseDescriptor}}\",\n    \"type\": {\n      \"id\": \"event\"\n     },\n    \"curation_policy\": \"This is the kind of records we accept.\",\n    \"page\": \"{{$randomJobDescriptor}}\",\n    \"website\": \"https://kth.se/\",\n    \"organizations\": [{\n      \"name\": \"KTH\"\n    }]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create publicCommunity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 201 res\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"})\r",
+									"\r",
+									"const res = pm.response.json()\r",
+									"\r",
+									"pm.test(\"slug and id found\", () => {\r",
+									"    pm.expect(res).to.be.an('object')\r",
+									"    pm.expect(res.slug.length).to.be.greaterThan(1)\r",
+									"    pm.expect(res.id.length).to.be.greaterThan(10)\r",
+									"})\r",
+									"\r",
+									"if (pm.expect(res.slug.length).to.be.greaterThan(1)){\r",
+									"\r",
+									"    // set environment variables: it's been set also in get all communities\r",
+									"    pm.environment.set(\"community-id\", res.id)\r",
+									"    pm.environment.set(\"community-slug\", res.slug)\r",
+									"    console.info(`community-id = ${pm.environment.get(\"community-id\")}`)\r",
+									"    console.info(`community-slug = ${pm.environment.get(\"community-slug\")}`)\r",
+									"}\r",
+									"else {\r",
+									"    console.log(\"no community is been created, please check api/communities\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"access\": {\n    \"visibility\": \"restricted\",\n    \"member_policy\": \"open\",\n    \"record_policy\": \"open\"\n  },\n  \"slug\": \"api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n  \"metadata\": {\n    \"title\": \"api-created-community-{{$randomProductAdjective}}-{{$randomVerb}}\",\n    \"description\": \"{{$randomCatchPhraseDescriptor}}\",\n    \"type\": {\n      \"id\": \"event\"\n     },\n    \"curation_policy\": \"This is the kind of records we accept.\",\n    \"page\": \"{{$randomJobDescriptor}}\",\n    \"website\": \"https://kth.se/\",\n    \"organizations\": [{\n      \"name\": \"KTH\"\n    }]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"// Get all communitity ids\r",
+									"res = pm.response.json()\r",
+									"pm.environment.set(\"community-ids\", res.hits.hits.map(hit => hit.id) )\r",
+									"    console.info(`community-ids = ${pm.environment.get(\"community-ids\")}`)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							],
+							"query": [
+								{
+									"key": "prettyprint",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "project",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "oldest",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete All communities DANGER",
+			"item": [
+				{
+					"name": "Get all Community ids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 200 res\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"// Get all communitity ids\r",
+									"res = pm.response.json()\r",
+									"pm.environment.set(\"community-ids\", res.hits.hits.map(hit => hit.id) )\r",
+									"console.info(`community-ids = ${pm.environment.get(\"community-ids\")}`)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/communities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities"
+							],
+							"query": [
+								{
+									"key": "prettyprint",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "project",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "oldest",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All communities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"test that it should get back 204 res\", () => {\r",
+									"    pm.response.to.have.status(204);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const com_ids = pm.variables.get('community-ids')\r",
+									"\r",
+									"pm.sendRequest()\r",
+									"pm.variables.set('community-id', com_ids.shift())\r",
+									"pm.variables.set('community-ids', com_ids)\r",
+									"\r",
+									"if (Array.isArray(com_ids) && com_ids.length > 0) {\r",
+									"    pm.execution.setNextRequest('Delete All communities')\r",
+									"} else {\r",
+									"    pm.execution.setNextRequest(null)\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/communities/{{community-id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"communities",
+								"{{community-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "> Click on Delete all communities and press Run on the right side of Overview tab. \n  \n\nYou can check the preRequest script in Delete all communities request."
+		},
+		{
+			"name": "Statistics",
+			"item": [
+				{
+					"name": "Get statistics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"views\": {\n    \"stat\": \"record-view\",\n    \"params\": {\n      \"recid\": \"{{record-id}}\"\n    }\n  },\n  \"views-all-versions\": {\n    \"stat\": \"record-view-all-versions\",\n    \"params\": {\n      \"parent_recid\": \"{{parent-id}}\"\n    }\n  },\n  \"views-with-date-range\": {\n    \"stat\": \"record-view\",\n    \"params\": {\n      \"start_date\": \"{{$randomDateRecent}}\",\n      \"end_date\": \"{{$randomDateFuture}}\",\n      \"recid\": \"{{record-id}}\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/stats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "> _Introduced in InvenioRDM v12_ \n  \n\nQuery for one or multiple statistics."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{BearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

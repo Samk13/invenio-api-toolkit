@@ -1,0 +1,28 @@
+meta {
+  name: vocabularies datetypes
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseURL}}/api/vocabularies/datetypes
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.hits[0].id
+  
+      // set environment variable
+  res ? bru.setEnvVar("vocabularies-id", id ? id : "") : console.log(`vocabularies-id is ${id}`)
+  console.info(`vocabularies-id = ${bru.getEnvVar("vocabularies-id")}`)
+}

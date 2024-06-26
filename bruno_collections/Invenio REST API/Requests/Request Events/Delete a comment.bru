@@ -1,0 +1,15 @@
+meta {
+  name: Delete a comment
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

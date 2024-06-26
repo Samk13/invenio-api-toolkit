@@ -1,0 +1,36 @@
+meta {
+  name: Get names
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/names
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~q: smith
+  ~sort: null
+  ~size: null
+  ~page: null
+  ~suggest: null
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+  const res = res.getBody()
+  
+  // grab id result from the first result in the array
+  const id = res.hits.hits[0]?.id || ""
+  
+  // set environment variable
+  res ? bru.setEnvVar("voc-names-id", id) : console.log(`names id is ${id}`)
+  console.info(`voc-names-id = ${bru.getEnvVar("voc-names-id")}`)
+}

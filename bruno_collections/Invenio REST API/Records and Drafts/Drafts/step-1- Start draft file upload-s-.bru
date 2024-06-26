@@ -1,0 +1,35 @@
+meta {
+  name: step-1- Start draft file upload-s-
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files
+  body: json
+  auth: bearer
+}
+
+headers {
+  accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  [
+      {
+          "key": "{{file-name}}"
+      }
+  ]
+}
+
+tests {
+  // File name should match the file uploaded in step[2]
+  
+  
+  test("Status code is 200", () =>  expect(res.getStatus()).to.equal(200))
+  
+}

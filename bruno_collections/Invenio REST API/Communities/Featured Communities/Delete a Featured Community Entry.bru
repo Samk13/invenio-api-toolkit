@@ -1,0 +1,31 @@
+meta {
+  name: Delete a Featured Community Entry
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseURL}}/api/communities/{{community-id}}/featured/{{featured-entry-id}}
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "start_date": "2024-06-11 10:13:13.945755"
+  }
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(201);
+  })
+}

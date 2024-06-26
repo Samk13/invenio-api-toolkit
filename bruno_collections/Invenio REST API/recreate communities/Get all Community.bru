@@ -1,0 +1,34 @@
+meta {
+  name: Get all Community
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/api/communities
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~prettyprint: 1
+  ~page: 1
+  ~type: project
+  ~size: 1
+  ~sort: oldest
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+  
+  // Get all communitity ids
+  res = res.getBody()
+  bru.setEnvVar("community-ids", res.hits.hits.map(hit => hit.id) )
+      console.info(`community-ids = ${bru.getEnvVar("community-ids")}`)
+}

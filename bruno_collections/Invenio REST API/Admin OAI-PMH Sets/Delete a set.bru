@@ -1,0 +1,20 @@
+meta {
+  name: Delete a set
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseURL}}/api/oaipmh/sets/{{set-id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Status code is 204", () =>  expect(res.getStatus()).to.equal(204))
+  
+}

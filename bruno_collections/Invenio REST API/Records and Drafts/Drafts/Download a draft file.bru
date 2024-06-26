@@ -1,0 +1,15 @@
+meta {
+  name: Download a draft file
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/files/{{file-name}}/content
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

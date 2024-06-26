@@ -1,0 +1,15 @@
+meta {
+  name: Get a comment
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/requests/{{request_id}}/comments/{{comment_id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

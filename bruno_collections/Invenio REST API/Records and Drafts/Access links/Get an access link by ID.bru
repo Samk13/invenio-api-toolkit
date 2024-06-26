@@ -1,0 +1,21 @@
+meta {
+  name: Get an access link by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "permission": "view"
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Create a Featured Community Entry v11 beta
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/communities/{{community-id}}/featured
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "start_date": "{{$timestamp}}"
+  }
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

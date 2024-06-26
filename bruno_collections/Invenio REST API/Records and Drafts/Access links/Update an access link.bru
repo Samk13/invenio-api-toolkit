@@ -1,0 +1,22 @@
+meta {
+  name: Update an access link
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseURL}}/api/records/{{record-id}}/access/links/{{link-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "permission": "edit",
+    "expires_at": "2024-11-06"
+  }
+}

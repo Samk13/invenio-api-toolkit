@@ -1,0 +1,21 @@
+meta {
+  name: Delete Community
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseURL}}/api/communities/{{community-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 204 res", () => {
+      expect(res.getStatus()).to.equal(204);
+  })
+}

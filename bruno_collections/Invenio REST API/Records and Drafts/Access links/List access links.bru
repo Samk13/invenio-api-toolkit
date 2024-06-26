@@ -1,0 +1,25 @@
+meta {
+  name: List access links
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseURL}}/api/records/{{record-id}}/access/links
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("Should return 200", () => {
+      expect(res.getStatus()).to.equal(200);
+  });
+  
+  let res = res.getBody();
+  res.hits.hits[0]?.id  && bru.setEnvVar("link-id", res.hits.hits[0].id || console.warn("no link created!"));
+  console.info(`link-id = ${bru.getEnvVar("link-id")}`);
+}

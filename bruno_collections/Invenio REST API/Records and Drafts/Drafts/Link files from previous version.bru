@@ -1,0 +1,15 @@
+meta {
+  name: Link files from previous version
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/actions/files-import
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Delete Community Logo
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseURL}}/api/communities/{{community-id}}/logo
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/octet-stream
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 200 res", () => {
+      expect(res.getStatus()).to.equal(200);
+  })
+}

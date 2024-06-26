@@ -1,0 +1,15 @@
+meta {
+  name: Get a request-s timeline
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/api/requests/{{request_id}}/timeline
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

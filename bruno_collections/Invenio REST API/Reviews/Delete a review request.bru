@@ -1,0 +1,29 @@
+meta {
+  name: Delete a review request
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseURL}}/api/records/{{draft-id}}/draft/review
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "receiver": {
+      "community": "{{community-id}}"
+    },
+    "type": "community-submission"
+  }
+}
+
+tests {
+  test("Status code is 204", () =>  expect(res.getStatus()).to.equal(204))
+  
+}

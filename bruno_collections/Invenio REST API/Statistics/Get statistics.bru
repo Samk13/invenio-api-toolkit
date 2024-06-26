@@ -1,0 +1,40 @@
+meta {
+  name: Get statistics
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/api/stats
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "views": {
+      "stat": "record-view",
+      "params": {
+        "recid": "{{record-id}}"
+      }
+    },
+    "views-all-versions": {
+      "stat": "record-view-all-versions",
+      "params": {
+        "parent_recid": "{{parent-id}}"
+      }
+    },
+    "views-with-date-range": {
+      "stat": "record-view",
+      "params": {
+        "start_date": "{{$randomDateRecent}}",
+        "end_date": "{{$randomDateFuture}}",
+        "recid": "{{record-id}}"
+      }
+    }
+  }
+}

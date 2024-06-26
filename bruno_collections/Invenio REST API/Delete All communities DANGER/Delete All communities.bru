@@ -1,0 +1,36 @@
+meta {
+  name: Delete All communities
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseURL}}/api/communities/{{community-id}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+script:pre-request {
+  const com_ids = bru.getVar('community-ids')
+  
+  // pm.sendRequest()
+  bru.setVar('community-id', com_ids.shift())
+  bru.setVar('community-ids', com_ids)
+  
+  if (Array.isArray(com_ids) && com_ids.length > 0) {
+  //     pm.execution.setNextRequest('Delete All communities')
+  } else {
+  //     pm.execution.setNextRequest(null)
+  }
+  
+}
+
+tests {
+  test("test that it should get back 204 res", () => {
+      expect(res.getStatus()).to.equal(204);
+  })
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Get Featured Community Entries
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/api/communities/{{community-id}}/featured
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+tests {
+  test("test that it should get back 201 res", () => {
+      expect(res.getStatus()).to.equal(201);
+  })
+  
+  
+  res = res.getBody()
+  // res.hits.hits.map(hit => console.log(`ID: ${hit.id}, SLUG: ${hit.slug}`))
+  
+  // set env to first community found, can produce err if there is no communities
+  bru.setEnvVar("featured-entry-id", res.hits.total > 0 ? 
+      res.hits.hits[0].id : 
+      console.warn("no featured-entry-id found!"))
+  
+  console.info(`featured-entry-id = ${bru.getEnvVar("featured-entry-id")}`)
+}

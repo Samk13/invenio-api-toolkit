@@ -1,0 +1,21 @@
+meta {
+  name: Cancel a request
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/api/requests/{{request_id}}/actions/cancel
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "payload": {"content": "You are in!", "format": "html"}
+  }
+}

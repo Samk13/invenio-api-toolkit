@@ -1,0 +1,45 @@
+meta {
+  name: Update a Community
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseURL}}/api/communities/{{community-id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+    "access": {
+      "visibility": "restricted",
+      "member_policy": "closed",
+      "record_policy": "closed"
+    },
+    "slug": "{{community-slug}}",
+    "metadata": {
+      "title": "sam-community-{{$randomProductAdjective}}-{{$randomVerb}}",
+      "description": "{{$randomCatchPhraseDescriptor}}",
+      "type": {
+        "id": "event"
+       },
+      "curation_policy": "This is the kind of records we accept.",
+      "page": "Information for my community.",
+      "website": "https://inveniosoftware.org/",
+      "organizations": [{
+        "name": "KTH"
+      }]
+    }
+  }
+}
+
+tests {
+  test("Successful POST request", function () {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  }); 
+}
