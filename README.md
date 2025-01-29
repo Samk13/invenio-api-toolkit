@@ -4,7 +4,7 @@ This repository contains tools to help you integrate use, test and document Inve
 You can import the collections in tools like Swagger UI, Postman, Bruno etc.
 This definitions are generated from Postman collections, Bruno.
 
-last updated: Invenio V11
+last updated: Invenio V12
 
 ## Postman Collection
 
