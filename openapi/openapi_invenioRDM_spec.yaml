@@ -26,7 +26,6 @@ paths:
     put:
       summary: Update Community Logo
       tags:
-      - Communities
       - Logos
       operationId: updateCommunityLogo
       parameters:
@@ -65,7 +64,6 @@ paths:
     get:
       summary: Get Community Logo
       tags:
-      - Communities
       - Logos
       operationId: getCommunityLogo
       parameters:
@@ -97,7 +95,6 @@ paths:
     delete:
       summary: Delete Community Logo
       tags:
-      - Communities
       - Logos
       operationId: deleteCommunityLogo
       parameters:
@@ -130,8 +127,7 @@ paths:
     get:
       summary: Get Featured Community Entry
       tags:
-      - Communities
-      - Featured
+      - Featured Communities
       operationId: createAFeaturedCommunityEntryV11Beta
       parameters:
       - name: communityId
@@ -162,8 +158,7 @@ paths:
     post:
       summary: Create a Featured Community Entry
       tags:
-      - Communities
-      - Featured
+      - Featured Communities
       operationId: createAFeaturedCommunityEntry
       parameters:
       - name: communityId
@@ -203,8 +198,7 @@ paths:
     get:
       summary: Search Featured Communities
       tags:
-      - Communities
-      - Featured
+      - Featured Communities
       operationId: searchFeaturedCommunities
       parameters:
       - name: prettyprint
@@ -265,8 +259,7 @@ paths:
     put:
       summary: Update a Featured Community Entry
       tags:
-      - Communities
-      - Featured
+      - Featured Communities
       operationId: updateAFeaturedCommunityEntry
       parameters:
       - name: communityId
@@ -310,8 +303,7 @@ paths:
     delete:
       summary: Delete a Featured Community Entry
       tags:
-      - Communities
-      - Featured
+      - Featured Communities
       operationId: deleteAFeaturedCommunityEntry
       parameters:
       - name: communityId
@@ -348,8 +340,7 @@ paths:
     get:
       summary: Search members
       tags:
-      - Communities
-      - Members
+      - Communities Members
       operationId: searchMembers
       parameters:
       - name: communityId
@@ -419,8 +410,7 @@ paths:
     post:
       summary: Add group members
       tags:
-      - Communities
-      - Members
+      - Communities Members
       operationId: addGroupMembers
       parameters:
       - name: communityId
@@ -462,8 +452,7 @@ paths:
     put:
       summary: Update members
       tags:
-      - Communities
-      - Members
+      - Communities Members
       operationId: updateMembers
       parameters:
       - name: communityId
@@ -508,8 +497,7 @@ paths:
     delete:
       summary: Remove members / leave community
       tags:
-      - Communities
-      - Members
+      - Communities Members
       operationId: removeMembersLeaveCommunity
       parameters:
       - name: communityId
@@ -541,8 +529,7 @@ paths:
     get:
       summary: Search public members
       tags:
-      - Communities
-      - Members
+      - Communities Members
       operationId: searchPublicMembers
       parameters:
       - name: communityId
@@ -592,8 +579,7 @@ paths:
     get:
       summary: Search invitations
       tags:
-      - Communities
-      - Invitations
+      - Communities Invitations
       operationId: searchInvitations
       parameters:
       - name: communityId
@@ -675,8 +661,7 @@ paths:
     post:
       summary: Invite user members
       tags:
-      - Communities
-      - Invitations
+      - Communities Invitations
       operationId: inviteUserMembers
       parameters:
       - name: communityId
@@ -719,8 +704,7 @@ paths:
     put:
       summary: Update invitations
       tags:
-      - Communities
-      - Invitations
+      - Communities Invitations
       operationId: updateInvitations
       parameters:
       - name: communityId
@@ -766,7 +750,6 @@ paths:
     get:
       summary: Get a review request
       tags:
-      - Records
       - Drafts
       operationId: getAReviewRequest
       parameters:
@@ -798,7 +781,6 @@ paths:
     put:
       summary: Create/update a review request
       tags:
-      - Records
       - Drafts
       operationId: createupdateAReviewRequest
       parameters:
@@ -840,7 +822,6 @@ paths:
     delete:
       summary: Delete a review request
       tags:
-      - Records
       - Drafts
       operationId: deleteAReviewRequest
       parameters:
@@ -873,7 +854,6 @@ paths:
     post:
       summary: Submit a record for review
       tags:
-      - Records
       - Drafts
       operationId: submitARecordForReview
       parameters:
@@ -1444,8 +1424,7 @@ paths:
     post:
       summary: step[1] Start draft file upload(s)
       tags:
-      - Records
-      - Drafts
+      - Drafts Files upload
       operationId: step1StartDraftFileUploads
       parameters:
       - name: draftId
@@ -1484,7 +1463,6 @@ paths:
     get:
       summary: List a draft's files
       tags:
-      - Records
       - Drafts
       operationId: listADraftsFiles
       parameters:
@@ -1517,8 +1495,7 @@ paths:
     put:
       summary: step[2] Upload a draft file's content
       tags:
-      - Records
-      - Drafts
+      - Drafts Files upload
       operationId: step2UploadADraftFilesContent
       parameters:
       - name: draftId
@@ -1561,7 +1538,6 @@ paths:
     get:
       summary: Download a draft file
       tags:
-      - Records
       - Drafts
       operationId: downloadADraftFile
       parameters:
@@ -1599,8 +1575,7 @@ paths:
     post:
       summary: step[3] Complete a draft file upload
       tags:
-      - Records
-      - Drafts
+      - Drafts Files upload
       operationId: step3CompleteADraftFileUpload
       parameters:
       - name: draftId
@@ -1637,7 +1612,6 @@ paths:
     post:
       summary: Publish a draft record
       tags:
-      - Records
       - Drafts
       operationId: publishADraftRecord
       parameters:
@@ -1670,7 +1644,6 @@ paths:
     post:
       summary: Link files from previous version
       tags:
-      - Records
       - Drafts
       operationId: linkFilesFromPreviousVersion
       parameters:
@@ -1703,7 +1676,6 @@ paths:
     post:
       summary: Edit a published record (Create a draft record from a published record)
       tags:
-      - Records
       - Drafts
       operationId: editAPublishedRecordCreateADraftRecordFromAPublishedRecord
       parameters:
@@ -1735,7 +1707,6 @@ paths:
     delete:
       summary: Delete/discard a draft record
       tags:
-      - Records
       - Drafts
       operationId: deletediscardADraftRecord
       parameters:
@@ -1767,7 +1738,6 @@ paths:
     put:
       summary: Update a draft record
       tags:
-      - Records
       - Drafts
       operationId: updateADraftRecord
       parameters:
@@ -1837,7 +1807,6 @@ paths:
     get:
       summary: Get a draft records
       tags:
-      - Records
       - Drafts
       operationId: getADraftRecords
       parameters:
@@ -1870,7 +1839,6 @@ paths:
     get:
       summary: Get a draft file's metadata
       tags:
-      - Records
       - Drafts
       operationId: getADraftFilesMetadata
       parameters:
@@ -1907,7 +1875,6 @@ paths:
     delete:
       summary: Delete a draft file
       tags:
-      - Records
       - Drafts
       operationId: deleteADraftFile
       parameters:
@@ -1983,7 +1950,6 @@ paths:
     get:
       summary: Export record as JSON
       tags:
-      - Records
       - Export
       operationId: exportRecordAsJson
       parameters:
@@ -2016,7 +1982,6 @@ paths:
     get:
       summary: Export record as dublincore XML
       tags:
-      - Records
       - Export
       operationId: exportRecordAsDublincoreXml
       parameters:
@@ -2049,7 +2014,6 @@ paths:
     get:
       summary: Export record as datacite-xml
       tags:
-      - Records
       - Export
       operationId: exportRecordAsDatacitexml
       parameters:
@@ -2082,7 +2046,6 @@ paths:
     get:
       summary: Export record as datacite-json
       tags:
-      - Records
       - Export
       operationId: exportRecordAsDatacitejson
       parameters:
@@ -2115,7 +2078,6 @@ paths:
     get:
       summary: Export record as csl
       tags:
-      - Records
       - Export
       operationId: exportRecordAsCsl
       parameters:
@@ -2212,8 +2174,7 @@ paths:
     get:
       summary: List a record's files
       tags:
-      - Records
-      - Files
+      - Records Files
       operationId: listARecordsFiles
       parameters:
       - name: recordId
@@ -2245,8 +2206,7 @@ paths:
     get:
       summary: Get a record file's metadata
       tags:
-      - Records
-      - Files
+      - Records Files
       operationId: getARecordFilesMetadata
       parameters:
       - name: recordId
@@ -2283,8 +2243,7 @@ paths:
     get:
       summary: Download a record file
       tags:
-      - Records
-      - Files
+      - Records Files
       operationId: downloadARecordFile
       parameters:
       - name: recordId
@@ -2616,7 +2575,6 @@ paths:
     post:
       summary: Reserve a DOI
       tags:
-      - Records
       - Drafts
       operationId: reserveADoi
       parameters:
@@ -2646,7 +2604,6 @@ paths:
     delete:
       summary: Delete a DOI
       tags:
-      - Records
       - Drafts
       operationId: deleteADoi
       parameters:
@@ -2683,8 +2640,7 @@ paths:
     post:
       summary: Accept a request
       tags:
-      - Requests
-      - Actions
+      - Request Actions
       operationId: acceptARequest
       parameters:
       - name: requestId
@@ -2726,8 +2682,7 @@ paths:
     post:
       summary: Cancel a request
       tags:
-      - Requests
-      - Actions
+      - Request Actions
       operationId: cancelARequest
       parameters:
       - name: requestId
@@ -2769,8 +2724,7 @@ paths:
     post:
       summary: Decline a request
       tags:
-      - Requests
-      - Actions
+      - Request Actions
       operationId: declineARequest
       parameters:
       - name: requestId
@@ -4287,7 +4241,7 @@ security:
 tags:
 - name: Access
   description: Access control and sharing
-- name: Actions
+- name: Request Actions
   description: Request actions and lifecycle management
 - name: Avatars
   description: User and group avatars
@@ -4295,22 +4249,24 @@ tags:
   description: Request comments and discussions
 - name: Communities
   description: Community management endpoints
+- name: Featured Communities
+  description: Featured communities management
 - name: Drafts
+  description: Draft record management
+- name: Drafts Files upload
   description: Draft record management
 - name: Export
   description: Record export functionality
-- name: Featured
-  description: Featured community management
-- name: Files
+- name: Records Files
   description: File management operations
 - name: Groups
   description: Group management endpoints
-- name: Invitations
-  description: Community invitations
+- name: Communities Invitations
+  description: Communities invitations
 - name: Logos
-  description: Community logo management
-- name: Members
-  description: Community membership management
+  description: Communities logo management
+- name: Communities Members
+  description: Communities membership management
 - name: OAI-PMH
   description: OAI-PMH protocol endpoints
 - name: Records
