@@ -9,7 +9,7 @@ info:
 
 
     see [complete documentation](https://inveniordm.docs.cern.ch/reference/rest_api_index/)'
-  version: 1.0.0
+  version: 12.0.0
   contact:
     name: InvenioRDM Documentation
     url: https://inveniordm.docs.cern.ch/
@@ -37,21 +37,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -75,21 +71,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     delete:
@@ -106,21 +98,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/featured:
@@ -138,21 +126,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     post:
@@ -169,21 +153,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -238,21 +218,17 @@ paths:
           project.
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/featured/{featured-entry-id}:
@@ -275,21 +251,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -319,21 +291,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/members:
@@ -390,21 +358,17 @@ paths:
         description: Filter by visibility (one of true, false)
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     post:
@@ -421,21 +385,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -463,21 +423,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -508,21 +464,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/members/public:
@@ -558,21 +510,17 @@ paths:
         description: Specify the page of results.
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/invitations:
@@ -641,21 +589,17 @@ paths:
         example: 'false'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     post:
@@ -672,21 +616,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -715,21 +655,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -761,21 +697,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     put:
@@ -792,21 +724,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -833,21 +761,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/actions/submit-review:
@@ -865,21 +789,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -901,21 +821,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities:
@@ -927,21 +843,17 @@ paths:
       parameters: []
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -1022,21 +934,17 @@ paths:
           project.
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}:
@@ -1054,21 +962,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -1107,21 +1011,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     get:
@@ -1138,21 +1038,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/records:
@@ -1178,21 +1074,17 @@ paths:
         example: metadata.publication_date%3A%5B2020-01-01%20TO%20%2A%5D
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/user/communities:
@@ -1228,21 +1120,17 @@ paths:
         example: oldest
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/communities/{communityId}/rename:
@@ -1260,21 +1148,17 @@ paths:
         description: Unique identifier for the community
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -1308,21 +1192,17 @@ paths:
       parameters: []
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -1403,21 +1283,17 @@ paths:
         example: 'True'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/files:
@@ -1435,21 +1311,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -1474,21 +1346,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/files/{file-name}/content:
@@ -1511,21 +1379,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -1554,21 +1418,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/files/{file-name}/commit:
@@ -1591,21 +1451,17 @@ paths:
           type: string
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/actions/publish:
@@ -1623,21 +1479,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/actions/files-import:
@@ -1655,21 +1507,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft:
@@ -1687,21 +1535,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       security:
       - BearerAuth: []
     delete:
@@ -1718,21 +1562,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     put:
@@ -1749,21 +1589,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -1818,21 +1654,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/files/{file-name}:
@@ -1855,21 +1687,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     delete:
@@ -1891,21 +1719,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/user/records:
@@ -1929,21 +1753,17 @@ paths:
         example: pids.doi.identifier:example-doi-123
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/export/json:
@@ -1961,21 +1781,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/export/dublincore:
@@ -1993,21 +1809,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/export/datacite-xml:
@@ -2025,21 +1837,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/export/datacite-json:
@@ -2057,21 +1865,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/export/csl:
@@ -2089,21 +1893,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/communities:
@@ -2121,21 +1921,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}:
@@ -2153,21 +1949,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/files:
@@ -2185,21 +1977,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/files/{file-name}:
@@ -2222,21 +2010,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/files/{file-name}/content:
@@ -2259,21 +2043,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/versions:
@@ -2292,21 +2072,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       security:
       - BearerAuth: []
     get:
@@ -2324,21 +2100,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/versions/latest:
@@ -2357,21 +2129,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/access/links:
@@ -2390,21 +2158,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -2430,21 +2194,17 @@ paths:
         description: Unique identifier for the record
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{recordId}/access/links/{linkId}:
@@ -2469,21 +2229,17 @@ paths:
         description: Unique identifier for the access link
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     patch:
@@ -2507,21 +2263,17 @@ paths:
         description: Unique identifier for the access link
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -2554,21 +2306,17 @@ paths:
         description: Unique identifier for the access link
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/records/{draftId}/draft/pids/doi:
@@ -2586,21 +2334,17 @@ paths:
         description: Unique identifier for the draft record
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
     delete:
       summary: Delete a DOI
       tags:
@@ -2621,21 +2365,17 @@ paths:
         example: '1'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
   /api/requests/{requestId}/actions/accept:
     post:
       summary: Accept a request
@@ -2651,21 +2391,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -2693,21 +2429,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -2735,21 +2467,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -2778,21 +2506,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -2827,21 +2551,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     put:
@@ -2864,21 +2584,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -2912,21 +2628,17 @@ paths:
           type: string
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/requests/{requestId}/timeline:
@@ -2945,21 +2657,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/requests:
@@ -2997,21 +2705,17 @@ paths:
         description: Specify the page of results.
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/requests/{requestId}:
@@ -3029,21 +2733,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     put:
@@ -3060,21 +2760,17 @@ paths:
         description: Unique identifier for the request
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -3106,21 +2802,17 @@ paths:
         description: Unique identifier for the user
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/users/{userId}/avatar.svg:
@@ -3139,21 +2831,17 @@ paths:
         description: Unique identifier for the user
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/groups:
@@ -3172,21 +2860,17 @@ paths:
         example: admin
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/groups/{groupId}:
@@ -3204,21 +2888,17 @@ paths:
         description: Unique identifier for the group
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/groups/{groupId}/avatar.svg:
@@ -3237,21 +2917,17 @@ paths:
         description: Unique identifier for the group
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/names:
@@ -3295,21 +2971,17 @@ paths:
         description: '"Search as you type" query.'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/names/{vocNamesId}:
@@ -3327,21 +2999,17 @@ paths:
         description: Unique identifier for the name vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/funders:
@@ -3387,21 +3055,17 @@ paths:
         example: '1'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/funders/{vocFundersId}:
@@ -3419,21 +3083,17 @@ paths:
         description: Unique identifier for the funder vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/awards:
@@ -3479,21 +3139,17 @@ paths:
         example: '1'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/awards/{vocAwardsId}:
@@ -3511,21 +3167,17 @@ paths:
         description: Unique identifier for the award vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/{vocabularies-type}:
@@ -3602,21 +3254,17 @@ paths:
         example: en_US
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/{vocabularies-type}/{vocabulariesId}:
@@ -3639,21 +3287,17 @@ paths:
         description: Unique identifier for the vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/resourcetypes:
@@ -3665,21 +3309,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/languages:
@@ -3691,21 +3331,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/licenses:
@@ -3717,21 +3353,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/relationtypes:
@@ -3743,21 +3375,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/contributorsroles:
@@ -3769,21 +3397,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/descriptiontypes:
@@ -3795,21 +3419,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/datetypes:
@@ -3821,21 +3441,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/vocabularies/creatorsroles:
@@ -3847,21 +3463,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/affiliations:
@@ -3873,21 +3485,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/affiliations/{vocAffiliationId}:
@@ -3905,21 +3513,17 @@ paths:
         description: Unique identifier for the affiliation vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/subjects:
@@ -3937,21 +3541,17 @@ paths:
         example: '{{subject-query}}'
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/subjects/{vocSubjectsId}:
@@ -3969,21 +3569,17 @@ paths:
         description: Unique identifier for the subject vocabulary
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/oaipmh/sets:
@@ -3996,21 +3592,17 @@ paths:
       parameters: []
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -4033,21 +3625,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/oaipmh/sets/{setId}:
@@ -4066,21 +3654,17 @@ paths:
         description: Unique identifier for the OAI-PMH set
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
     put:
@@ -4098,21 +3682,17 @@ paths:
         description: Unique identifier for the OAI-PMH set
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       requestBody:
         required: true
         content:
@@ -4141,21 +3721,17 @@ paths:
         description: Unique identifier for the OAI-PMH set
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/oaipmh/formats:
@@ -4167,21 +3743,17 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Success'
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
       security:
       - BearerAuth: []
   /api/stats:
@@ -4193,21 +3765,17 @@ paths:
       parameters: []
       responses:
         '400':
-          description: Bad request
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
         '500':
-          description: Internal server error
+          $ref: '#/components/responses/InternalServerError'
         '201':
-          description: Created successfully
-          content:
-            application/json:
-              schema:
-                type: object
+          $ref: '#/components/responses/Created'
       requestBody:
         required: true
         content:
@@ -4235,6 +3803,33 @@ components:
       type: http
       scheme: bearer
       description: Bearer token authentication
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    BadRequest:
+      description: Bad request - Invalid input parameters
+    Unauthorized:
+      description: Unauthorized - Authentication required
+    Forbidden:
+      description: Forbidden - Insufficient permissions
+    NotFound:
+      description: Not found - Resource does not exist
+    InternalServerError:
+      description: Internal server error - Unexpected server error
+    Created:
+      description: Resource created successfully
+      content:
+        application/json:
+          schema:
+            type: object
+    NoContent:
+      description: No content - Operation completed successfully
+    Conflict:
+      description: Conflict - Resource already exists or operation conflicts - Resource already exists or operation conflicts
   schemas: {}
 security:
 - BearerAuth: []
