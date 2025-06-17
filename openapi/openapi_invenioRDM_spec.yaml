@@ -2060,8 +2060,7 @@ paths:
     post:
       summary: Create a new version
       tags:
-      - Records
-      - Versions
+      - Records Versions
       operationId: createANewVersion
       parameters:
       - name: recordId
@@ -2088,8 +2087,7 @@ paths:
     get:
       summary: Get all versions
       tags:
-      - Records
-      - Versions
+      - Records Versions
       operationId: getAllVersions
       parameters:
       - name: recordId
@@ -2117,8 +2115,7 @@ paths:
     get:
       summary: Get latest version
       tags:
-      - Records
-      - Versions
+      - Records Versions
       operationId: getLatestVersion
       parameters:
       - name: recordId
@@ -3586,8 +3583,7 @@ paths:
     post:
       summary: Create a set
       tags:
-      - OAI-PMH
-      - Sets
+      - OAI-PMH Sets
       operationId: createASet
       parameters: []
       responses:
@@ -3619,8 +3615,7 @@ paths:
     get:
       summary: Search sets
       tags:
-      - OAI-PMH
-      - Sets
+      - OAI-PMH Sets
       operationId: searchSets
       parameters: []
       responses:
@@ -3642,8 +3637,7 @@ paths:
     get:
       summary: Get a set by ID
       tags:
-      - OAI-PMH
-      - Sets
+      - OAI-PMH Sets
       operationId: getASetById
       parameters:
       - name: setId
@@ -3670,8 +3664,7 @@ paths:
     put:
       summary: Update a set
       tags:
-      - OAI-PMH
-      - Sets
+      - OAI-PMH Sets
       operationId: updateASet
       parameters:
       - name: setId
@@ -3709,8 +3702,7 @@ paths:
     delete:
       summary: Delete a set
       tags:
-      - OAI-PMH
-      - Sets
+      - OAI-PMH Sets
       operationId: deleteASet
       parameters:
       - name: setId
@@ -3868,15 +3860,13 @@ tags:
   description: Record and draft management endpoints
 - name: Requests
   description: Request management endpoints
-- name: Sets
-  description: OAI-PMH sets management
 - name: Statistics
   description: Statistics and analytics endpoints
 - name: Timeline
   description: Request timeline and history
 - name: Users
   description: User management endpoints
-- name: Versions
-  description: Version management
+- name: Records Versions
+  description: Record Version management
 - name: Vocabularies
   description: Vocabulary and controlled terms endpoints
