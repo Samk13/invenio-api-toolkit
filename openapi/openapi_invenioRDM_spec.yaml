@@ -26,7 +26,7 @@ paths:
     put:
       summary: Update Community Logo
       tags:
-      - Logos
+      - Communities logo
       operationId: updateCommunityLogo
       parameters:
       - name: communityId
@@ -60,7 +60,7 @@ paths:
     get:
       summary: Get Community Logo
       tags:
-      - Logos
+      - Communities logo
       operationId: getCommunityLogo
       parameters:
       - name: communityId
@@ -87,7 +87,7 @@ paths:
     delete:
       summary: Delete Community Logo
       tags:
-      - Logos
+      - Communities logo
       operationId: deleteCommunityLogo
       parameters:
       - name: communityId
@@ -3858,7 +3858,7 @@ tags:
   description: Group management endpoints
 - name: Communities Invitations
   description: Communities invitations
-- name: Logos
+- name: Communities logo
   description: Communities logo management
 - name: Communities Members
   description: Communities membership management
