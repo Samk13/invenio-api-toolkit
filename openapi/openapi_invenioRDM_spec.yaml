@@ -3,10 +3,8 @@ info:
   title: Invenio REST API
   description: '## **Summary**
 
-
     The following document is a reference guide for all the REST APIs that InvenioRDM
     exposes.
-
 
     see [complete documentation](https://inveniordm.docs.cern.ch/reference/rest_api_index/)'
   version: 12.0.0
